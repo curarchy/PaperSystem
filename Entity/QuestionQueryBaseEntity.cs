@@ -9,8 +9,8 @@ namespace PaperSystem.Entity
     {
         public string Keyword { get; set; }
 
-        public int[] Type { get; set; }
+        public List<int> Type { get; set; }
 
-        public int[] Level { get; set; }
+        public List<int> Level { get; set; }
     }
 }

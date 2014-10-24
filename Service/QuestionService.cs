@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Data;
+using System.Data.SQLite;
 using PaperSystem.Entity;
 using Service;
-using System.Data.SQLite;
-using System.Data;
 
 namespace PaperSystem.Service
 {
@@ -16,7 +13,8 @@ namespace PaperSystem.Service
         /// </summary>
         /// <param name="question"></param>
         /// <returns></returns>
-        public static int CreateQuestion(QuestionBaseEntity question) {
+        public static int CreateQuestion(QuestionBaseEntity question) 
+        {
             string connectString = DB_CONNECT_STRING;
             string commandText = "INSERT INTO Question (MainContent, AnswerA, Type, Level, Memo) ";
             commandText += "VALUES(@MainContent, @AnswerA, @Type, @Level, @Memo);";
@@ -38,10 +36,37 @@ namespace PaperSystem.Service
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
-        public static DataSet QueryQuestion(QuestionQueryBaseEntity query) {
+        public static DataSet QueryQuestion(QuestionQueryBaseEntity query) 
+        {
             string connectString = DB_CONNECT_STRING;
             string commandText = "select ID, Level, MainContent, Type, Memo from Question t where 1=1 ";
-            return SQLiteHelper.ExecuteDataSet(connectString, commandText, CommandType.Text, null);
+
+            List<SQLiteParameter> parameters = new List<SQLiteParameter>();
+
+            if (!string.IsNullOrEmpty(query.Keyword.Trim()))
+            {
+                commandText += "and (t.Memo like '%' || @Keyword || '%' ";
+                commandText += " or '' || t.ID like '%' || @Keyword || '%' ";
+                commandText += " or t.MainContent like '%' || @Keyword || '%' ";
+                commandText += " or t.AnswerA like '%' || @Keyword || '%') ";
+                SQLiteParameter param = new SQLiteParameter("@Keyword", query.Keyword);
+                parameters.Add(param);
+            }
+
+
+
+            if (query.Level.Count > 0) 
+            {
+                commandText += "and t.Level in (";
+                foreach (int level in query.Level) 
+                {
+                    commandText += level.ToString() + ",";
+                }
+                commandText = commandText.TrimEnd(',');
+                commandText += ")";
+            }
+
+            return SQLiteHelper.ExecuteDataSet(connectString, commandText, CommandType.Text, parameters.ToArray());
         }
     }
 }

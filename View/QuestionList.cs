@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using PaperSystem.Entity;
 using PaperSystem.Model;
@@ -28,6 +23,8 @@ namespace PaperSystem.View
         public QuestionQueryBaseEntity GetEntity()
         {
             QuestionQueryBaseEntity query = new QuestionQueryBaseEntity();
+            query.Keyword = this.keyword.Text;
+            query.Level = UIHelper.GetCheckedCheckboxs(this.groupLevel.Controls);
             return query;
         }
 
@@ -42,6 +39,11 @@ namespace PaperSystem.View
         {
             QuestionForm questionForm = new QuestionForm();
             questionForm.ShowDialog();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DataGridViewSelectedRowCollection selectedRows = this.questionGridView.SelectedRows;
         }
     }
 }

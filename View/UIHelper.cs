@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using PaperSystem.Entity;
+using System.Collections.Generic;
 
 namespace PaperSystem.View
 {
@@ -25,6 +26,28 @@ namespace PaperSystem.View
                 }
             }
             return 0;
+        }
+
+        /// <summary>
+        /// 获取checkbox的取值。值在tag里，必须是int。
+        /// </summary>
+        /// <param name="controlCllection"></param>
+        /// <returns></returns>
+        public static List<int> GetCheckedCheckboxs(Control.ControlCollection controlCllection)
+        {
+            List<int> result = new List<int>();
+            foreach (var item in controlCllection)
+            {
+                if (item is CheckBox)
+                {
+                    CheckBox checkbox = item as CheckBox;
+                    if (checkbox.Checked)
+                    {
+                        result.Add(Convert.ToInt16(checkbox.Tag));
+                    }
+                }
+            }
+            return result;
         }
     }
 }

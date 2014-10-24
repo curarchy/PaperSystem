@@ -18,5 +18,7 @@ namespace PaperSystem.Entity
         public int Type { get; set; }
 
         public int Level { get; set; }
+
+        public string Memo { get; set; }
     }
 }

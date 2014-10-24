@@ -1,9 +1,9 @@
 D:\Github\xjj\PaperSystem\bin\Debug\PaperSystem.exe
 D:\Github\xjj\PaperSystem\bin\Debug\PaperSystem.pdb
-D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.Form1.resources
 D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.Properties.Resources.resources
 D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.csproj.GenerateResource.Cache
 D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.exe
 D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.pdb
 D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.csprojResolveAssemblyReference.cache
 D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.View.QuestionForm.resources
+D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.View.QuestionList.resources

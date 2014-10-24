@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using PaperSystem.Entity;
+using PaperSystem.Model;
 
 namespace PaperSystem.View
 {
@@ -19,21 +14,18 @@ namespace PaperSystem.View
 
         private void save_Click(object sender, EventArgs e)
         {
-            GetEntity();
-            //QuestionBaseEntity question = new QuestionBaseEntity();
-            //question.Level = 2;
-            //question.Type = 0;
-            //question.MainContent = "这是第一个问题";
-            //question.AnswerA = "这是第一个答案";
-
-            //QuestionModel.AddQuestion(question);
+            QuestionBaseEntity question = GetEntity();
+            QuestionModel.AddQuestion(question);
         }
 
         public QuestionBaseEntity GetEntity() {
             QuestionBaseEntity question = new QuestionBaseEntity();
 
-            
-            // question.Type = 
+            question.Type = UIHelper.GetCheckedRadioButton(this.type.Controls);
+            question.Level = UIHelper.GetCheckedRadioButton(this.level.Controls);
+            question.AnswerA = this.answer.Text.Trim();
+            question.MainContent = this.question.Text.Trim();
+            question.Memo = this.memo.Text.Trim();
 
             return question;
         }

@@ -93,7 +93,7 @@ namespace Service
             using (SQLiteConnection con = new SQLiteConnection(connectionString))
             {
                 SQLiteTransaction trans = null;
-                PrepareCommand(cmd, con, ref trans, true, commandType, commandText);
+                PrepareCommand(cmd, con, ref trans, true, commandType, commandText, cmdParms);
                 try
                 {
                     result = cmd.ExecuteNonQuery();

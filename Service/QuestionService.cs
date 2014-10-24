@@ -32,6 +32,46 @@ namespace PaperSystem.Service
         }
 
         /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="question"></param>
+        /// <returns></returns>
+        public static int ModifyQuestion(QuestionBaseEntity question)
+        {
+            string connectString = DB_CONNECT_STRING;
+            string commandText = "UPDATE Question set MainContent = @MainContent, AnswerA = @AnswerA, ";
+            commandText += "Type = @Type, Level = @Level, Memo = @Memo Where ID = @ID";
+
+            SQLiteParameter[] parameters = {
+                                               new SQLiteParameter("@ID", question.ID),
+                                               new SQLiteParameter("@MainContent", question.MainContent),
+                                               new SQLiteParameter("@AnswerA", question.AnswerA),
+                                               new SQLiteParameter("@Type", question.Type),
+                                               new SQLiteParameter("@Level", question.Level),
+                                               new SQLiteParameter("@Memo", question.Memo)
+                                           };
+
+            return SQLiteHelper.ExecuteNonQuery(connectString, commandText, System.Data.CommandType.Text, parameters);
+        }
+
+        /// <summary>
+        /// 查询单个实体
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static DataSet QuerySingle(int id) 
+        {
+            string connectString = DB_CONNECT_STRING;
+            string commandText = "select * from Question t where t.ID = @ID ";
+
+            SQLiteParameter[] parameters = {
+                                               new SQLiteParameter("@ID", id)
+                                           };
+
+            return SQLiteHelper.ExecuteDataSet(connectString, commandText, CommandType.Text, parameters);
+        }
+
+        /// <summary>
         /// 查询
         /// </summary>
         /// <param name="query"></param>
@@ -53,8 +93,6 @@ namespace PaperSystem.Service
                 parameters.Add(param);
             }
 
-
-
             if (query.Level.Count > 0) 
             {
                 commandText += "and t.Level in (";
@@ -67,6 +105,24 @@ namespace PaperSystem.Service
             }
 
             return SQLiteHelper.ExecuteDataSet(connectString, commandText, CommandType.Text, parameters.ToArray());
+        }
+
+        /// <summary>
+        /// 批量删除
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public static int DeleteQuestions(List<int> ids) {
+            string connectString = DB_CONNECT_STRING;
+            string commandText = "delete from Question where ID in ( ";
+            foreach (int id in ids)
+            {
+                commandText += id.ToString() + ",";
+            }
+            commandText = commandText.TrimEnd(',');
+            commandText += ")";
+
+            return SQLiteHelper.ExecuteNonQuery(connectString, commandText, CommandType.Text);
         }
     }
 }

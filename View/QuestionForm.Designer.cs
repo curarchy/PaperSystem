@@ -48,6 +48,7 @@
             this.labelMemo = new System.Windows.Forms.Label();
             this.memo = new System.Windows.Forms.RichTextBox();
             this.save = new System.Windows.Forms.Button();
+            this.close = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.level.SuspendLayout();
             this.type.SuspendLayout();
@@ -77,6 +78,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.close);
             this.panel1.Controls.Add(this.question);
             this.panel1.Controls.Add(this.labelQuestion);
             this.panel1.Controls.Add(this.level);
@@ -263,6 +265,16 @@
             this.save.UseVisualStyleBackColor = true;
             this.save.Click += new System.EventHandler(this.save_Click);
             // 
+            // close
+            // 
+            this.close.Location = new System.Drawing.Point(731, 464);
+            this.close.Name = "close";
+            this.close.Size = new System.Drawing.Size(75, 23);
+            this.close.TabIndex = 18;
+            this.close.Text = " 关闭";
+            this.close.UseVisualStyleBackColor = true;
+            this.close.Click += new System.EventHandler(this.close_Click);
+            // 
             // QuestionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -303,5 +315,6 @@
         private System.Windows.Forms.GroupBox type;
         private System.Windows.Forms.RichTextBox answer;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button close;
     }
 }

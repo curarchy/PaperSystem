@@ -81,6 +81,7 @@
             this.questionGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.questionGridView.Size = new System.Drawing.Size(815, 526);
             this.questionGridView.TabIndex = 2;
+            this.questionGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.questionGridView_CellDoubleClick);
             // 
             // ID
             // 
@@ -270,7 +271,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1164, 714);
+            this.ClientSize = new System.Drawing.Size(891, 714);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.groupLevel);
             this.Controls.Add(this.labelLevel);

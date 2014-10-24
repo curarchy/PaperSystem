@@ -29,6 +29,26 @@ namespace PaperSystem.View
         }
 
         /// <summary>
+        /// 设置checkbox的取值。值在tag里，必须是int。
+        /// </summary>
+        /// <param name="controlCllection"></param>
+        /// <returns></returns>
+        public static void SetCheckedRadioButton(Control.ControlCollection controlCllection, int value)
+        {
+            foreach (var item in controlCllection)
+            {
+                if (item is RadioButton)
+                {
+                    RadioButton radioButton = item as RadioButton;
+                    if (Convert.ToInt16(radioButton.Tag) == value)
+                    {
+                        radioButton.Checked = true;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// 获取checkbox的取值。值在tag里，必须是int。
         /// </summary>
         /// <param name="controlCllection"></param>
@@ -47,6 +67,19 @@ namespace PaperSystem.View
                     }
                 }
             }
+            return result;
+        }
+
+        public static List<int> GetSelectedIndex(DataGridView dataGridView)
+        {
+            List<int> result = new List<int>();
+            DataGridViewSelectedRowCollection selectedRows = dataGridView.SelectedRows;
+
+            foreach (DataGridViewRow item in selectedRows)
+            {
+                result.Add(Convert.ToInt16(item.Cells["ID"].Value));
+            }
+
             return result;
         }
     }

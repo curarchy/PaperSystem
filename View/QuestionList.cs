@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using PaperSystem.Entity;
@@ -14,6 +15,11 @@ namespace PaperSystem.View
         }
 
         private void search_Click(object sender, EventArgs e)
+        {
+            Search();
+        }
+
+        public void Search()
         {
             QuestionQueryBaseEntity query = GetEntity();
             DataSet ds = QuestionModel.QueryQuestion(query);
@@ -38,12 +44,30 @@ namespace PaperSystem.View
         private void create_Click(object sender, EventArgs e)
         {
             QuestionForm questionForm = new QuestionForm();
-            questionForm.ShowDialog();
+            questionForm.FormClosed += new FormClosedEventHandler(questionForm_FormClosed);
+            questionForm.ShowDialog();            
+        }
+
+        void questionForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Search();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DataGridViewSelectedRowCollection selectedRows = this.questionGridView.SelectedRows;
+            List<int> selectedItems = UIHelper.GetSelectedIndex(this.questionGridView);
+            QuestionModel.DeleteQuestions(selectedItems);
+
+            Search();
+        }
+
+        private void questionGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int ID = Convert.ToInt16(this.questionGridView.Rows[e.RowIndex].Cells["ID"].Value);
+
+            QuestionForm questionForm = new QuestionForm("modify", ID);
+            questionForm.FormClosed += new FormClosedEventHandler(questionForm_FormClosed);
+            questionForm.ShowDialog();
         }
     }
 }

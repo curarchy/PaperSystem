@@ -1,0 +1,10 @@
+D:\Github\xjj\PaperSystem\bin\Release\PaperSystem.exe.config
+D:\Github\xjj\PaperSystem\bin\Release\PaperSystem.exe
+D:\Github\xjj\PaperSystem\bin\Release\PaperSystem.pdb
+D:\Github\xjj\PaperSystem\bin\Release\System.Data.SQLite.dll
+D:\Github\xjj\PaperSystem\obj\x86\Release\PaperSystem.Properties.Resources.resources
+D:\Github\xjj\PaperSystem\obj\x86\Release\PaperSystem.View.QuestionForm.resources
+D:\Github\xjj\PaperSystem\obj\x86\Release\PaperSystem.View.QuestionList.resources
+D:\Github\xjj\PaperSystem\obj\x86\Release\PaperSystem.csproj.GenerateResource.Cache
+D:\Github\xjj\PaperSystem\obj\x86\Release\PaperSystem.exe
+D:\Github\xjj\PaperSystem\obj\x86\Release\PaperSystem.pdb

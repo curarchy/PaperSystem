@@ -14,6 +14,7 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,12 +27,11 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -71,10 +71,18 @@
     <Compile Include="Model\QuestionModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ExcelHelper.cs" />
+    <Compile Include="Service\ExcelService.cs" />
     <Compile Include="Service\QuestionService.cs" />
     <Compile Include="Service\ServiceBase.cs" />
     <Compile Include="Service\SQLiteHelper.cs" />
     <Compile Include="Transform\QuestionBaseTransform.cs" />
+    <Compile Include="View\QuestionImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\QuestionImport.Designer.cs">
+      <DependentUpon>QuestionImport.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\QuestionList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +108,9 @@
     </Compile>
     <EmbeddedResource Include="View\QuestionForm.resx">
       <DependentUpon>QuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\QuestionImport.resx">
+      <DependentUpon>QuestionImport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\QuestionList.resx">
       <DependentUpon>QuestionList.cs</DependentUpon>
@@ -138,6 +149,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Require\photo1.jpg" />
+    <Content Include="Require\photo2.jpg" />
     <Content Include="Service\doc\Sql.txt" />
   </ItemGroup>
   <ItemGroup />

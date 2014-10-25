@@ -38,5 +38,10 @@ namespace PaperSystem.Model
         {
             return QuestionService.ModifyQuestion(question);
         }
+
+        public static DataSet GetQuestionsFromExcel(string file)
+        {
+            return ExcelService.GetQuestionsFromExcel(file);
+        }
     }
 }

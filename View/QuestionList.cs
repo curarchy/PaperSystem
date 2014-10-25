@@ -69,5 +69,12 @@ namespace PaperSystem.View
             questionForm.FormClosed += new FormClosedEventHandler(questionForm_FormClosed);
             questionForm.ShowDialog();
         }
+
+        private void import_Click(object sender, EventArgs e)
+        {
+            QuestionImport questionImport = new QuestionImport();
+            questionImport.FormClosed += new FormClosedEventHandler(questionForm_FormClosed);
+            questionImport.ShowDialog();   
+        }
     }
 }

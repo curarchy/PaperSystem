@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
+using PaperSystem.View;
 
 namespace PaperSystem
 {
@@ -15,7 +14,7 @@ namespace PaperSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new QuestionList());
         }
     }
 }

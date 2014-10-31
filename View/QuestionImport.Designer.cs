@@ -33,14 +33,20 @@
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MainContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Memo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Artical = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Question = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Writter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Collection = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.import = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.questionGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // chooseFile
             // 
-            this.chooseFile.Location = new System.Drawing.Point(12, 12);
+            this.chooseFile.Location = new System.Drawing.Point(927, 12);
             this.chooseFile.Name = "chooseFile";
             this.chooseFile.Size = new System.Drawing.Size(75, 23);
             this.chooseFile.TabIndex = 0;
@@ -58,14 +64,18 @@
             this.ID,
             this.Level,
             this.Type,
-            this.MainContent,
-            this.Memo});
-            this.questionGridView.Location = new System.Drawing.Point(12, 53);
+            this.Grade,
+            this.Artical,
+            this.Question,
+            this.Writter,
+            this.Answer,
+            this.Collection});
+            this.questionGridView.Location = new System.Drawing.Point(12, 41);
             this.questionGridView.Name = "questionGridView";
             this.questionGridView.ReadOnly = true;
             this.questionGridView.RowTemplate.Height = 23;
             this.questionGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.questionGridView.Size = new System.Drawing.Size(815, 526);
+            this.questionGridView.Size = new System.Drawing.Size(990, 603);
             this.questionGridView.TabIndex = 3;
             // 
             // ID
@@ -93,33 +103,83 @@
             this.Type.ReadOnly = true;
             this.Type.Width = 60;
             // 
-            // MainContent
+            // Grade
             // 
-            this.MainContent.DataPropertyName = "MainContent";
-            this.MainContent.HeaderText = "题干";
-            this.MainContent.Name = "MainContent";
-            this.MainContent.ReadOnly = true;
-            this.MainContent.Width = 400;
+            this.Grade.DataPropertyName = "Grade";
+            this.Grade.HeaderText = "学期";
+            this.Grade.Name = "Grade";
+            this.Grade.ReadOnly = true;
+            this.Grade.Width = 60;
             // 
-            // Memo
+            // Artical
             // 
-            this.Memo.DataPropertyName = "Memo";
-            this.Memo.HeaderText = "备注";
-            this.Memo.Name = "Memo";
-            this.Memo.ReadOnly = true;
-            this.Memo.Width = 200;
+            this.Artical.DataPropertyName = "Artical";
+            this.Artical.HeaderText = "篇目";
+            this.Artical.Name = "Artical";
+            this.Artical.ReadOnly = true;
+            // 
+            // Question
+            // 
+            this.Question.DataPropertyName = "Question";
+            this.Question.HeaderText = "题干";
+            this.Question.Name = "Question";
+            this.Question.ReadOnly = true;
+            this.Question.Width = 400;
+            // 
+            // Writter
+            // 
+            this.Writter.DataPropertyName = "Writter";
+            this.Writter.HeaderText = "作者";
+            this.Writter.Name = "Writter";
+            this.Writter.ReadOnly = true;
+            // 
+            // Answer
+            // 
+            this.Answer.DataPropertyName = "Answer";
+            this.Answer.HeaderText = "答案";
+            this.Answer.Name = "Answer";
+            this.Answer.ReadOnly = true;
+            // 
+            // Collection
+            // 
+            this.Collection.DataPropertyName = "Collection";
+            this.Collection.HeaderText = "选自";
+            this.Collection.Name = "Collection";
+            this.Collection.ReadOnly = true;
+            // 
+            // import
+            // 
+            this.import.Location = new System.Drawing.Point(927, 650);
+            this.import.Name = "import";
+            this.import.Size = new System.Drawing.Size(75, 23);
+            this.import.TabIndex = 4;
+            this.import.Text = "导入";
+            this.import.UseVisualStyleBackColor = true;
+            this.import.Click += new System.EventHandler(this.import_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 660);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(371, 12);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "选中题目后可以导入。摁住Ctrl键可以选择多条。Ctrl + A 为全选。";
             // 
             // QuestionImport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1014, 707);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.import);
             this.Controls.Add(this.questionGridView);
             this.Controls.Add(this.chooseFile);
             this.Name = "QuestionImport";
             this.Text = "QuestionImport";
             ((System.ComponentModel.ISupportInitialize)(this.questionGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -130,7 +190,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Level;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MainContent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Memo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Grade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Artical;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Question;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Writter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Answer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Collection;
+        private System.Windows.Forms.Button import;
+        private System.Windows.Forms.Label label1;
     }
 }

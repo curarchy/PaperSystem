@@ -50,10 +50,15 @@ namespace PaperSystem.View
 
             question.Type = UIHelper.GetCheckedRadioButton(this.type.Controls);
             question.Level = UIHelper.GetCheckedRadioButton(this.level.Controls);
-            question.AnswerA = this.answer.Text.Trim();
-            question.MainContent = this.question.Text.Trim();
+            question.Answer = this.answer.Text.Trim();
+            question.Question = this.question.Text.Trim();
             question.Memo = this.memo.Text.Trim();
             question.ID = ID;
+            question.Writter = this.writter.Text.Trim();
+            question.Artical = this.artical.Text.Trim();
+            question.Collection = this.collection.Text.Trim();
+            question.Grade = this.grade.SelectedIndex;
+            question.Keyword = this.keyword.Text.Trim();
 
             return question;
         }
@@ -67,9 +72,14 @@ namespace PaperSystem.View
         {
             UIHelper.SetCheckedRadioButton(this.type.Controls, entity.Type);
             UIHelper.SetCheckedRadioButton(this.level.Controls, entity.Level);
-            this.answer.Text = entity.AnswerA;
-            this.question.Text = entity.MainContent;
+            this.answer.Text = entity.Answer;
+            this.question.Text = entity.Question;
             this.memo.Text = entity.Memo;
+            this.writter.Text = entity.Writter;
+            this.artical.Text = entity.Artical;
+            this.collection.Text = entity.Collection;
+            this.grade.SelectedIndex = entity.Grade;
+            this.keyword.Text = entity.Keyword;
         }
     }
 }

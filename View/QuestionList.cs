@@ -31,6 +31,7 @@ namespace PaperSystem.View
             QuestionQueryBaseEntity query = new QuestionQueryBaseEntity();
             query.Keyword = this.keyword.Text;
             query.Level = UIHelper.GetCheckedCheckboxs(this.groupLevel.Controls);
+            query.Grade = UIHelper.GetCheckedCheckboxs(this.groupGrade.Controls);
             return query;
         }
 

@@ -7,5 +7,4 @@ D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.pdb
 D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.View.QuestionForm.resources
 D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.View.QuestionList.resources
 D:\Github\xjj\PaperSystem\bin\Debug\PaperSystem.exe.config
-D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.csprojResolveAssemblyReference.cache
 D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.View.QuestionImport.resources

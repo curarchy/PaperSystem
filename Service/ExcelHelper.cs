@@ -10,13 +10,12 @@ namespace PaperSystem.Service
             string strConn = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source=" + Path + ";" + "Extended Properties=Excel 8.0;";
             OleDbConnection conn = new OleDbConnection(strConn);
             conn.Open();
-            string strExcel = "";
-            OleDbDataAdapter myCommand = null;
-            DataSet ds = null;
-            strExcel = "select * from [sheet1$]";
-            myCommand = new OleDbDataAdapter(strExcel, strConn);
-            ds = new DataSet();
+            DataSet ds = new DataSet();
+            string strExcel = "select 序号 as ID, 例字 as Keyword, 释义 as Answer, 例句 as Question, 篇目 as Artical, ";
+            strExcel += " 选自 as Collection, 作者 as Writter from [sheet1$]";
+            OleDbDataAdapter myCommand = new OleDbDataAdapter(strExcel, strConn);
             myCommand.Fill(ds, "table1");
+            conn.Close();
             return ds;
         }
     }

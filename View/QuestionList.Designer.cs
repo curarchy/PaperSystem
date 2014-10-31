@@ -30,11 +30,6 @@
         {
             this.search = new System.Windows.Forms.Button();
             this.questionGridView = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MainContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Memo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.create = new System.Windows.Forms.Button();
             this.keyword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,8 +44,29 @@
             this.labelLevel = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.import = new System.Windows.Forms.Button();
+            this.groupGrade = new System.Windows.Forms.GroupBox();
+            this.checkBox14 = new System.Windows.Forms.CheckBox();
+            this.checkBox13 = new System.Windows.Forms.CheckBox();
+            this.checkBox12 = new System.Windows.Forms.CheckBox();
+            this.checkBox11 = new System.Windows.Forms.CheckBox();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.checkBox10 = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Artical = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Question = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Writter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Collection = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.questionGridView)).BeginInit();
             this.groupLevel.SuspendLayout();
+            this.groupGrade.SuspendLayout();
             this.SuspendLayout();
             // 
             // search
@@ -73,9 +89,13 @@
             this.ID,
             this.Level,
             this.Type,
-            this.MainContent,
-            this.Memo});
-            this.questionGridView.Location = new System.Drawing.Point(30, 107);
+            this.Grade,
+            this.Artical,
+            this.Question,
+            this.Writter,
+            this.Answer,
+            this.Collection});
+            this.questionGridView.Location = new System.Drawing.Point(32, 163);
             this.questionGridView.Name = "questionGridView";
             this.questionGridView.ReadOnly = true;
             this.questionGridView.RowTemplate.Height = 23;
@@ -84,50 +104,9 @@
             this.questionGridView.TabIndex = 2;
             this.questionGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.questionGridView_CellDoubleClick);
             // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 50;
-            // 
-            // Level
-            // 
-            this.Level.DataPropertyName = "Level";
-            this.Level.HeaderText = "难度";
-            this.Level.MinimumWidth = 40;
-            this.Level.Name = "Level";
-            this.Level.ReadOnly = true;
-            this.Level.Width = 60;
-            // 
-            // Type
-            // 
-            this.Type.DataPropertyName = "Type";
-            this.Type.HeaderText = "类型";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
-            this.Type.Width = 60;
-            // 
-            // MainContent
-            // 
-            this.MainContent.DataPropertyName = "MainContent";
-            this.MainContent.HeaderText = "题干";
-            this.MainContent.Name = "MainContent";
-            this.MainContent.ReadOnly = true;
-            this.MainContent.Width = 400;
-            // 
-            // Memo
-            // 
-            this.Memo.DataPropertyName = "Memo";
-            this.Memo.HeaderText = "备注";
-            this.Memo.Name = "Memo";
-            this.Memo.ReadOnly = true;
-            this.Memo.Width = 200;
-            // 
             // create
             // 
-            this.create.Location = new System.Drawing.Point(770, 659);
+            this.create.Location = new System.Drawing.Point(772, 716);
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(75, 23);
             this.create.TabIndex = 3;
@@ -260,7 +239,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(673, 659);
+            this.btnDelete.Location = new System.Drawing.Point(675, 716);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(91, 23);
             this.btnDelete.TabIndex = 19;
@@ -278,11 +257,225 @@
             this.import.UseVisualStyleBackColor = true;
             this.import.Click += new System.EventHandler(this.import_Click);
             // 
+            // groupGrade
+            // 
+            this.groupGrade.Controls.Add(this.checkBox14);
+            this.groupGrade.Controls.Add(this.checkBox13);
+            this.groupGrade.Controls.Add(this.checkBox12);
+            this.groupGrade.Controls.Add(this.checkBox11);
+            this.groupGrade.Controls.Add(this.checkBox6);
+            this.groupGrade.Controls.Add(this.checkBox7);
+            this.groupGrade.Controls.Add(this.checkBox8);
+            this.groupGrade.Controls.Add(this.checkBox9);
+            this.groupGrade.Controls.Add(this.checkBox10);
+            this.groupGrade.Location = new System.Drawing.Point(94, 99);
+            this.groupGrade.Name = "groupGrade";
+            this.groupGrade.Size = new System.Drawing.Size(547, 47);
+            this.groupGrade.TabIndex = 22;
+            this.groupGrade.TabStop = false;
+            // 
+            // checkBox14
+            // 
+            this.checkBox14.AutoSize = true;
+            this.checkBox14.Checked = true;
+            this.checkBox14.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox14.Location = new System.Drawing.Point(458, 23);
+            this.checkBox14.Name = "checkBox14";
+            this.checkBox14.Size = new System.Drawing.Size(48, 16);
+            this.checkBox14.TabIndex = 23;
+            this.checkBox14.Tag = "9";
+            this.checkBox14.Text = "其它";
+            this.checkBox14.UseVisualStyleBackColor = true;
+            // 
+            // checkBox13
+            // 
+            this.checkBox13.AutoSize = true;
+            this.checkBox13.Checked = true;
+            this.checkBox13.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox13.Location = new System.Drawing.Point(404, 23);
+            this.checkBox13.Name = "checkBox13";
+            this.checkBox13.Size = new System.Drawing.Size(48, 16);
+            this.checkBox13.TabIndex = 22;
+            this.checkBox13.Tag = "8";
+            this.checkBox13.Text = "九下";
+            this.checkBox13.UseVisualStyleBackColor = true;
+            // 
+            // checkBox12
+            // 
+            this.checkBox12.AutoSize = true;
+            this.checkBox12.Checked = true;
+            this.checkBox12.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox12.Location = new System.Drawing.Point(350, 23);
+            this.checkBox12.Name = "checkBox12";
+            this.checkBox12.Size = new System.Drawing.Size(48, 16);
+            this.checkBox12.TabIndex = 21;
+            this.checkBox12.Tag = "7";
+            this.checkBox12.Text = "九上";
+            this.checkBox12.UseVisualStyleBackColor = true;
+            // 
+            // checkBox11
+            // 
+            this.checkBox11.AutoSize = true;
+            this.checkBox11.Checked = true;
+            this.checkBox11.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox11.Location = new System.Drawing.Point(296, 23);
+            this.checkBox11.Name = "checkBox11";
+            this.checkBox11.Size = new System.Drawing.Size(48, 16);
+            this.checkBox11.TabIndex = 20;
+            this.checkBox11.Tag = "6";
+            this.checkBox11.Text = "八下";
+            this.checkBox11.UseVisualStyleBackColor = true;
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.Checked = true;
+            this.checkBox6.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox6.Location = new System.Drawing.Point(242, 23);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(48, 16);
+            this.checkBox6.TabIndex = 19;
+            this.checkBox6.Tag = "5";
+            this.checkBox6.Text = "八上";
+            this.checkBox6.UseVisualStyleBackColor = true;
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Checked = true;
+            this.checkBox7.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox7.Location = new System.Drawing.Point(188, 23);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(48, 16);
+            this.checkBox7.TabIndex = 18;
+            this.checkBox7.Tag = "4";
+            this.checkBox7.Text = "七下";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            // 
+            // checkBox8
+            // 
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.Checked = true;
+            this.checkBox8.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox8.Location = new System.Drawing.Point(134, 23);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(48, 16);
+            this.checkBox8.TabIndex = 17;
+            this.checkBox8.Tag = "3";
+            this.checkBox8.Text = "七上";
+            this.checkBox8.UseVisualStyleBackColor = true;
+            // 
+            // checkBox9
+            // 
+            this.checkBox9.AutoSize = true;
+            this.checkBox9.Checked = true;
+            this.checkBox9.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox9.Location = new System.Drawing.Point(80, 23);
+            this.checkBox9.Name = "checkBox9";
+            this.checkBox9.Size = new System.Drawing.Size(48, 16);
+            this.checkBox9.TabIndex = 16;
+            this.checkBox9.Tag = "2";
+            this.checkBox9.Text = "六下";
+            this.checkBox9.UseVisualStyleBackColor = true;
+            // 
+            // checkBox10
+            // 
+            this.checkBox10.AutoSize = true;
+            this.checkBox10.Checked = true;
+            this.checkBox10.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox10.Location = new System.Drawing.Point(22, 23);
+            this.checkBox10.Name = "checkBox10";
+            this.checkBox10.Size = new System.Drawing.Size(48, 16);
+            this.checkBox10.TabIndex = 15;
+            this.checkBox10.Tag = "1";
+            this.checkBox10.Text = "六上";
+            this.checkBox10.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(30, 116);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 12);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "学期：";
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 50;
+            // 
+            // Level
+            // 
+            this.Level.DataPropertyName = "Level";
+            this.Level.HeaderText = "难度";
+            this.Level.MinimumWidth = 40;
+            this.Level.Name = "Level";
+            this.Level.ReadOnly = true;
+            this.Level.Width = 60;
+            // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "类型";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            this.Type.Width = 60;
+            // 
+            // Grade
+            // 
+            this.Grade.DataPropertyName = "Grade";
+            this.Grade.HeaderText = "学期";
+            this.Grade.Name = "Grade";
+            this.Grade.ReadOnly = true;
+            this.Grade.Width = 60;
+            // 
+            // Artical
+            // 
+            this.Artical.DataPropertyName = "Artical";
+            this.Artical.HeaderText = "篇目";
+            this.Artical.Name = "Artical";
+            this.Artical.ReadOnly = true;
+            // 
+            // Question
+            // 
+            this.Question.DataPropertyName = "Question";
+            this.Question.HeaderText = "题干";
+            this.Question.Name = "Question";
+            this.Question.ReadOnly = true;
+            this.Question.Width = 400;
+            // 
+            // Writter
+            // 
+            this.Writter.DataPropertyName = "Writter";
+            this.Writter.HeaderText = "作者";
+            this.Writter.Name = "Writter";
+            this.Writter.ReadOnly = true;
+            // 
+            // Answer
+            // 
+            this.Answer.DataPropertyName = "Answer";
+            this.Answer.HeaderText = "答案";
+            this.Answer.Name = "Answer";
+            this.Answer.ReadOnly = true;
+            // 
+            // Collection
+            // 
+            this.Collection.DataPropertyName = "Collection";
+            this.Collection.HeaderText = "选自";
+            this.Collection.Name = "Collection";
+            this.Collection.ReadOnly = true;
+            // 
             // QuestionList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(891, 714);
+            this.ClientSize = new System.Drawing.Size(925, 762);
+            this.Controls.Add(this.groupGrade);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.import);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.groupLevel);
@@ -297,6 +490,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.questionGridView)).EndInit();
             this.groupLevel.ResumeLayout(false);
             this.groupLevel.PerformLayout();
+            this.groupGrade.ResumeLayout(false);
+            this.groupGrade.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,11 +501,6 @@
 
         private System.Windows.Forms.Button search;
         private System.Windows.Forms.DataGridView questionGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Level;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MainContent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Memo;
         private System.Windows.Forms.Button create;
         private System.Windows.Forms.TextBox keyword;
         private System.Windows.Forms.Label label1;
@@ -325,5 +515,25 @@
         private System.Windows.Forms.Label labelLevel;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button import;
+        private System.Windows.Forms.GroupBox groupGrade;
+        private System.Windows.Forms.CheckBox checkBox14;
+        private System.Windows.Forms.CheckBox checkBox13;
+        private System.Windows.Forms.CheckBox checkBox12;
+        private System.Windows.Forms.CheckBox checkBox11;
+        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.CheckBox checkBox8;
+        private System.Windows.Forms.CheckBox checkBox9;
+        private System.Windows.Forms.CheckBox checkBox10;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Level;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Grade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Artical;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Question;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Writter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Answer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Collection;
     }
 }

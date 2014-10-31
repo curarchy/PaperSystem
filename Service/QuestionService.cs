@@ -16,17 +16,21 @@ namespace PaperSystem.Service
         public static int CreateQuestion(QuestionBaseEntity question) 
         {
             string connectString = DB_CONNECT_STRING;
-            string commandText = "INSERT INTO Question (MainContent, AnswerA, Type, Level, Memo) ";
-            commandText += "VALUES(@MainContent, @AnswerA, @Type, @Level, @Memo);";
+            string commandText = "INSERT INTO Question (Question, Answer, Type, Level, Memo, Writter, Artical, Collection, Grade, Keyword) ";
+            commandText += "VALUES(@Question, @Answer, @Type, @Level, @Memo, @Writter, @Artical, @Collection, @Grade, @Keyword);";
 
             SQLiteParameter[] parameters = {
-                                               new SQLiteParameter("@MainContent", question.MainContent),
-                                               new SQLiteParameter("@AnswerA", question.AnswerA),
+                                               new SQLiteParameter("@Question", question.Question),
+                                               new SQLiteParameter("@Answer", question.Answer),
                                                new SQLiteParameter("@Type", question.Type),
                                                new SQLiteParameter("@Level", question.Level),
-                                               new SQLiteParameter("@Memo", question.Memo)
+                                               new SQLiteParameter("@Memo", question.Memo),
+                                               new SQLiteParameter("@Writter", question.Writter),
+                                               new SQLiteParameter("@Artical", question.Artical),
+                                               new SQLiteParameter("@Collection", question.Collection),
+                                               new SQLiteParameter("@Grade", question.Grade),
+                                               new SQLiteParameter("@Keyword", question.Keyword)
                                            };
-
 
             return SQLiteHelper.ExecuteNonQuery(connectString, commandText, System.Data.CommandType.Text, parameters);
         }
@@ -39,16 +43,22 @@ namespace PaperSystem.Service
         public static int ModifyQuestion(QuestionBaseEntity question)
         {
             string connectString = DB_CONNECT_STRING;
-            string commandText = "UPDATE Question set MainContent = @MainContent, AnswerA = @AnswerA, ";
-            commandText += "Type = @Type, Level = @Level, Memo = @Memo Where ID = @ID";
+            string commandText = "UPDATE Question set Question = @Question, Answer = @Answer, ";
+            commandText += "Type = @Type, Level = @Level, Memo = @Memo, Writter = @Writter, ";
+            commandText += " Artical = @Artical, Collection = @Collection, Grade = @Grade, Keyword = @Keyword Where ID = @ID";
 
             SQLiteParameter[] parameters = {
                                                new SQLiteParameter("@ID", question.ID),
-                                               new SQLiteParameter("@MainContent", question.MainContent),
-                                               new SQLiteParameter("@AnswerA", question.AnswerA),
+                                               new SQLiteParameter("@Question", question.Question),
+                                               new SQLiteParameter("@Answer", question.Answer),
                                                new SQLiteParameter("@Type", question.Type),
                                                new SQLiteParameter("@Level", question.Level),
-                                               new SQLiteParameter("@Memo", question.Memo)
+                                               new SQLiteParameter("@Memo", question.Memo),
+                                               new SQLiteParameter("@Writter", question.Writter),
+                                               new SQLiteParameter("@Artical", question.Artical),
+                                               new SQLiteParameter("@Collection", question.Collection),
+                                               new SQLiteParameter("@Grade", question.Grade),
+                                               new SQLiteParameter("@Keyword", question.Keyword)
                                            };
 
             return SQLiteHelper.ExecuteNonQuery(connectString, commandText, System.Data.CommandType.Text, parameters);
@@ -79,23 +89,27 @@ namespace PaperSystem.Service
         public static DataSet QueryQuestion(QuestionQueryBaseEntity query) 
         {
             string connectString = DB_CONNECT_STRING;
-            string commandText = "select ID, Level, MainContent, Type, Memo from Question t where 1=1 ";
+            string commandText = "select ID, Level, Question, Answer, Type, Memo, Writter, Artical, Collection, Grade from Question t where 1=1 ";
 
             List<SQLiteParameter> parameters = new List<SQLiteParameter>();
 
             if (!string.IsNullOrEmpty(query.Keyword.Trim()))
             {
-                commandText += "and (t.Memo like '%' || @Keyword || '%' ";
+                commandText += "and (t.Question like '%' || @Keyword || '%' ";
                 commandText += " or '' || t.ID like '%' || @Keyword || '%' ";
-                commandText += " or t.MainContent like '%' || @Keyword || '%' ";
-                commandText += " or t.AnswerA like '%' || @Keyword || '%') ";
+                commandText += " or t.Answer like '%' || @Keyword || '%' ";
+                commandText += " or t.Writter like '%' || @Keyword || '%' ";
+                commandText += " or t.Artical like '%' || @Keyword || '%' ";
+                commandText += " or t.Collection like '%' || @Keyword || '%' ";
+                commandText += " or t.Keyword like '%' || @Keyword || '%' ";
+                commandText += " or t.Memo like '%' || @Keyword || '%') ";
                 SQLiteParameter param = new SQLiteParameter("@Keyword", query.Keyword);
                 parameters.Add(param);
             }
 
             if (query.Level.Count > 0) 
             {
-                commandText += "and t.Level in (";
+                commandText += " and t.Level in (";
                 foreach (int level in query.Level) 
                 {
                     commandText += level.ToString() + ",";
@@ -103,6 +117,28 @@ namespace PaperSystem.Service
                 commandText = commandText.TrimEnd(',');
                 commandText += ")";
             }
+
+            if (query.Grade.Count > 0)
+            {
+                commandText += " and t.Grade in (";
+                foreach (int grade in query.Grade)
+                {
+                    commandText += grade.ToString() + ",";
+                }
+                commandText = commandText.TrimEnd(',');
+                commandText += ")";
+            }
+
+            //if (query.Type.Count > 0)
+            //{
+            //    commandText += " and t.Type in (";
+            //    foreach (int type in query.Type)
+            //    {
+            //        commandText += type.ToString() + ",";
+            //    }
+            //    commandText = commandText.TrimEnd(',');
+            //    commandText += ")";
+            //}
 
             return SQLiteHelper.ExecuteDataSet(connectString, commandText, CommandType.Text, parameters.ToArray());
         }

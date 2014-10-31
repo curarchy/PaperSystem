@@ -151,7 +151,7 @@
   <ItemGroup>
     <Content Include="Require\photo1.jpg" />
     <Content Include="Require\photo2.jpg" />
-    <Content Include="Service\doc\Sql.txt" />
+    <Content Include="Service\doc\Sql.sql" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

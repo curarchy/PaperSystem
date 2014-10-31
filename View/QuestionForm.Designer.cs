@@ -31,6 +31,7 @@
             this.translate = new System.Windows.Forms.RadioButton();
             this.labelType = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.close = new System.Windows.Forms.Button();
             this.question = new System.Windows.Forms.RichTextBox();
             this.labelQuestion = new System.Windows.Forms.Label();
             this.level = new System.Windows.Forms.GroupBox();
@@ -48,7 +49,16 @@
             this.labelMemo = new System.Windows.Forms.Label();
             this.memo = new System.Windows.Forms.RichTextBox();
             this.save = new System.Windows.Forms.Button();
-            this.close = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.grade = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.writter = new System.Windows.Forms.TextBox();
+            this.artical = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.collection = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.keyword = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.level.SuspendLayout();
             this.type.SuspendLayout();
@@ -78,6 +88,16 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.keyword);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.collection);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.artical);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.writter);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.grade);
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.close);
             this.panel1.Controls.Add(this.question);
             this.panel1.Controls.Add(this.labelQuestion);
@@ -93,12 +113,22 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(913, 506);
+            this.panel1.Size = new System.Drawing.Size(933, 605);
             this.panel1.TabIndex = 2;
+            // 
+            // close
+            // 
+            this.close.Location = new System.Drawing.Point(731, 552);
+            this.close.Name = "close";
+            this.close.Size = new System.Drawing.Size(75, 23);
+            this.close.TabIndex = 18;
+            this.close.Text = " 关闭";
+            this.close.UseVisualStyleBackColor = true;
+            this.close.Click += new System.EventHandler(this.close_Click);
             // 
             // question
             // 
-            this.question.Location = new System.Drawing.Point(105, 85);
+            this.question.Location = new System.Drawing.Point(105, 173);
             this.question.Name = "question";
             this.question.Size = new System.Drawing.Size(793, 179);
             this.question.TabIndex = 5;
@@ -107,7 +137,7 @@
             // labelQuestion
             // 
             this.labelQuestion.AutoSize = true;
-            this.labelQuestion.Location = new System.Drawing.Point(36, 88);
+            this.labelQuestion.Location = new System.Drawing.Point(36, 176);
             this.labelQuestion.Name = "labelQuestion";
             this.labelQuestion.Size = new System.Drawing.Size(41, 12);
             this.labelQuestion.TabIndex = 4;
@@ -205,7 +235,7 @@
             // 
             // answer
             // 
-            this.answer.Location = new System.Drawing.Point(105, 270);
+            this.answer.Location = new System.Drawing.Point(105, 358);
             this.answer.Name = "answer";
             this.answer.Size = new System.Drawing.Size(793, 85);
             this.answer.TabIndex = 17;
@@ -214,7 +244,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(36, 270);
+            this.label3.Location = new System.Drawing.Point(36, 358);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 12);
             this.label3.TabIndex = 16;
@@ -241,7 +271,7 @@
             // labelMemo
             // 
             this.labelMemo.AutoSize = true;
-            this.labelMemo.Location = new System.Drawing.Point(36, 364);
+            this.labelMemo.Location = new System.Drawing.Point(36, 452);
             this.labelMemo.Name = "labelMemo";
             this.labelMemo.Size = new System.Drawing.Size(41, 12);
             this.labelMemo.TabIndex = 6;
@@ -249,7 +279,7 @@
             // 
             // memo
             // 
-            this.memo.Location = new System.Drawing.Point(105, 361);
+            this.memo.Location = new System.Drawing.Point(105, 449);
             this.memo.Name = "memo";
             this.memo.Size = new System.Drawing.Size(793, 85);
             this.memo.TabIndex = 7;
@@ -257,7 +287,7 @@
             // 
             // save
             // 
-            this.save.Location = new System.Drawing.Point(823, 464);
+            this.save.Location = new System.Drawing.Point(823, 552);
             this.save.Name = "save";
             this.save.Size = new System.Drawing.Size(75, 23);
             this.save.TabIndex = 8;
@@ -265,21 +295,102 @@
             this.save.UseVisualStyleBackColor = true;
             this.save.Click += new System.EventHandler(this.save_Click);
             // 
-            // close
+            // label4
             // 
-            this.close.Location = new System.Drawing.Point(731, 464);
-            this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(75, 23);
-            this.close.TabIndex = 18;
-            this.close.Text = " 关闭";
-            this.close.UseVisualStyleBackColor = true;
-            this.close.Click += new System.EventHandler(this.close_Click);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(573, 34);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 12);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "学期：";
+            // 
+            // grade
+            // 
+            this.grade.FormattingEnabled = true;
+            this.grade.Items.AddRange(new object[] {
+            "六上",
+            "六下",
+            "七上",
+            "七下",
+            "八上",
+            "八下",
+            "九上",
+            "九下",
+            "其它"});
+            this.grade.Location = new System.Drawing.Point(621, 29);
+            this.grade.Name = "grade";
+            this.grade.Size = new System.Drawing.Size(121, 20);
+            this.grade.TabIndex = 20;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(36, 90);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 12);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "作者：";
+            // 
+            // writter
+            // 
+            this.writter.Location = new System.Drawing.Point(105, 87);
+            this.writter.Name = "writter";
+            this.writter.Size = new System.Drawing.Size(108, 21);
+            this.writter.TabIndex = 22;
+            // 
+            // artical
+            // 
+            this.artical.Location = new System.Drawing.Point(309, 87);
+            this.artical.Name = "artical";
+            this.artical.Size = new System.Drawing.Size(108, 21);
+            this.artical.TabIndex = 24;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(240, 90);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 12);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "篇目：";
+            // 
+            // collection
+            // 
+            this.collection.Location = new System.Drawing.Point(518, 87);
+            this.collection.Name = "collection";
+            this.collection.Size = new System.Drawing.Size(108, 21);
+            this.collection.TabIndex = 26;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(449, 90);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 12);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "选自：";
+            // 
+            // keyword
+            // 
+            this.keyword.Location = new System.Drawing.Point(105, 131);
+            this.keyword.Name = "keyword";
+            this.keyword.Size = new System.Drawing.Size(108, 21);
+            this.keyword.TabIndex = 28;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(36, 134);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 12);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "例字：";
             // 
             // QuestionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(913, 506);
+            this.ClientSize = new System.Drawing.Size(933, 605);
             this.Controls.Add(this.panel1);
             this.Name = "QuestionForm";
             this.Text = "QuestionForm";
@@ -316,5 +427,15 @@
         private System.Windows.Forms.RichTextBox answer;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button close;
+        private System.Windows.Forms.TextBox keyword;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox collection;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox artical;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox writter;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox grade;
+        private System.Windows.Forms.Label label4;
     }
 }

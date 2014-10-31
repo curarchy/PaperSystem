@@ -12,5 +12,7 @@ namespace PaperSystem.Entity
         public List<int> Type { get; set; }
 
         public List<int> Level { get; set; }
+
+        public List<int> Grade { get; set; }
     }
 }

@@ -144,6 +144,26 @@ namespace PaperSystem.Service
         }
 
         /// <summary>
+        /// 查询
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
+        public static DataSet QueryQuestionByIDs(List<int> ids)
+        {
+            string connectString = DB_CONNECT_STRING;
+            string commandText = "select ID, Level, Question, Answer, Type, Memo, Writter, Artical, Collection, Grade, Keyword";
+            commandText += " from Question where ID in ( ";
+            foreach (int id in ids)
+            {
+                commandText += id.ToString() + ",";
+            }
+            commandText = commandText.TrimEnd(',');
+            commandText += ")";
+
+            return SQLiteHelper.ExecuteDataSet(connectString, commandText, CommandType.Text);
+        }
+
+        /// <summary>
         /// 批量删除
         /// </summary>
         /// <param name="ids"></param>

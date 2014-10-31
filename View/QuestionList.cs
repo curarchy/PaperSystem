@@ -77,5 +77,11 @@ namespace PaperSystem.View
             questionImport.FormClosed += new FormClosedEventHandler(questionForm_FormClosed);
             questionImport.ShowDialog();   
         }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            QuestionExport questionExportForm = new QuestionExport();
+            questionExportForm.ShowDialog();
+        }
     }
 }

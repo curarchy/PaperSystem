@@ -30,6 +30,15 @@
         {
             this.search = new System.Windows.Forms.Button();
             this.questionGridView = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Artical = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Question = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Writter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Collection = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.create = new System.Windows.Forms.Button();
             this.keyword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,15 +64,7 @@
             this.checkBox9 = new System.Windows.Forms.CheckBox();
             this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Artical = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Question = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Writter = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Collection = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnExport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.questionGridView)).BeginInit();
             this.groupLevel.SuspendLayout();
             this.groupGrade.SuspendLayout();
@@ -71,7 +72,8 @@
             // 
             // search
             // 
-            this.search.Location = new System.Drawing.Point(770, 58);
+            this.search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.search.Location = new System.Drawing.Point(755, 19);
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(75, 23);
             this.search.TabIndex = 1;
@@ -84,6 +86,9 @@
             this.questionGridView.AllowUserToAddRows = false;
             this.questionGridView.AllowUserToDeleteRows = false;
             this.questionGridView.AllowUserToOrderColumns = true;
+            this.questionGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.questionGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.questionGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -95,18 +100,88 @@
             this.Writter,
             this.Answer,
             this.Collection});
-            this.questionGridView.Location = new System.Drawing.Point(32, 163);
+            this.questionGridView.Location = new System.Drawing.Point(30, 152);
             this.questionGridView.Name = "questionGridView";
             this.questionGridView.ReadOnly = true;
             this.questionGridView.RowTemplate.Height = 23;
             this.questionGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.questionGridView.Size = new System.Drawing.Size(815, 526);
+            this.questionGridView.Size = new System.Drawing.Size(883, 598);
             this.questionGridView.TabIndex = 2;
             this.questionGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.questionGridView_CellDoubleClick);
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 50;
+            // 
+            // Level
+            // 
+            this.Level.DataPropertyName = "Level";
+            this.Level.HeaderText = "难度";
+            this.Level.MinimumWidth = 40;
+            this.Level.Name = "Level";
+            this.Level.ReadOnly = true;
+            this.Level.Width = 60;
+            // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "类型";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            this.Type.Width = 60;
+            // 
+            // Grade
+            // 
+            this.Grade.DataPropertyName = "Grade";
+            this.Grade.HeaderText = "学期";
+            this.Grade.Name = "Grade";
+            this.Grade.ReadOnly = true;
+            this.Grade.Width = 60;
+            // 
+            // Artical
+            // 
+            this.Artical.DataPropertyName = "Artical";
+            this.Artical.HeaderText = "篇目";
+            this.Artical.Name = "Artical";
+            this.Artical.ReadOnly = true;
+            // 
+            // Question
+            // 
+            this.Question.DataPropertyName = "Question";
+            this.Question.HeaderText = "题干";
+            this.Question.Name = "Question";
+            this.Question.ReadOnly = true;
+            this.Question.Width = 400;
+            // 
+            // Writter
+            // 
+            this.Writter.DataPropertyName = "Writter";
+            this.Writter.HeaderText = "作者";
+            this.Writter.Name = "Writter";
+            this.Writter.ReadOnly = true;
+            // 
+            // Answer
+            // 
+            this.Answer.DataPropertyName = "Answer";
+            this.Answer.HeaderText = "答案";
+            this.Answer.Name = "Answer";
+            this.Answer.ReadOnly = true;
+            // 
+            // Collection
+            // 
+            this.Collection.DataPropertyName = "Collection";
+            this.Collection.HeaderText = "选自";
+            this.Collection.Name = "Collection";
+            this.Collection.ReadOnly = true;
+            // 
             // create
             // 
-            this.create.Location = new System.Drawing.Point(772, 716);
+            this.create.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.create.Location = new System.Drawing.Point(838, 19);
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(75, 23);
             this.create.TabIndex = 3;
@@ -239,7 +314,8 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(675, 716);
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.Location = new System.Drawing.Point(822, 77);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(91, 23);
             this.btnDelete.TabIndex = 19;
@@ -249,7 +325,8 @@
             // 
             // import
             // 
-            this.import.Location = new System.Drawing.Point(770, 16);
+            this.import.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.import.Location = new System.Drawing.Point(757, 48);
             this.import.Name = "import";
             this.import.Size = new System.Drawing.Size(75, 23);
             this.import.TabIndex = 20;
@@ -400,80 +477,23 @@
             this.label6.TabIndex = 21;
             this.label6.Text = "学期：";
             // 
-            // ID
+            // btnExport
             // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 50;
-            // 
-            // Level
-            // 
-            this.Level.DataPropertyName = "Level";
-            this.Level.HeaderText = "难度";
-            this.Level.MinimumWidth = 40;
-            this.Level.Name = "Level";
-            this.Level.ReadOnly = true;
-            this.Level.Width = 60;
-            // 
-            // Type
-            // 
-            this.Type.DataPropertyName = "Type";
-            this.Type.HeaderText = "类型";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
-            this.Type.Width = 60;
-            // 
-            // Grade
-            // 
-            this.Grade.DataPropertyName = "Grade";
-            this.Grade.HeaderText = "学期";
-            this.Grade.Name = "Grade";
-            this.Grade.ReadOnly = true;
-            this.Grade.Width = 60;
-            // 
-            // Artical
-            // 
-            this.Artical.DataPropertyName = "Artical";
-            this.Artical.HeaderText = "篇目";
-            this.Artical.Name = "Artical";
-            this.Artical.ReadOnly = true;
-            // 
-            // Question
-            // 
-            this.Question.DataPropertyName = "Question";
-            this.Question.HeaderText = "题干";
-            this.Question.Name = "Question";
-            this.Question.ReadOnly = true;
-            this.Question.Width = 400;
-            // 
-            // Writter
-            // 
-            this.Writter.DataPropertyName = "Writter";
-            this.Writter.HeaderText = "作者";
-            this.Writter.Name = "Writter";
-            this.Writter.ReadOnly = true;
-            // 
-            // Answer
-            // 
-            this.Answer.DataPropertyName = "Answer";
-            this.Answer.HeaderText = "答案";
-            this.Answer.Name = "Answer";
-            this.Answer.ReadOnly = true;
-            // 
-            // Collection
-            // 
-            this.Collection.DataPropertyName = "Collection";
-            this.Collection.HeaderText = "选自";
-            this.Collection.Name = "Collection";
-            this.Collection.ReadOnly = true;
+            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExport.Location = new System.Drawing.Point(838, 48);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.TabIndex = 23;
+            this.btnExport.Text = "导出";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // QuestionList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(925, 762);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.groupGrade);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.import);
@@ -535,5 +555,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Writter;
         private System.Windows.Forms.DataGridViewTextBoxColumn Answer;
         private System.Windows.Forms.DataGridViewTextBoxColumn Collection;
+        private System.Windows.Forms.Button btnExport;
     }
 }

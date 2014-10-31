@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using PaperSystem.Entity;
+using System.Collections.Generic;
 
 namespace PaperSystem.Transform
 {
@@ -26,6 +27,16 @@ namespace PaperSystem.Transform
             result.Type = Convert.ToInt16(dataRow["Type"]);
             result.Writter = Convert.ToString(dataRow["Writter"]);
 
+            return result;
+        }
+
+        public static List<QuestionBaseEntity> Transform(DataTable dataTable)
+        {
+            List<QuestionBaseEntity> result = new List<QuestionBaseEntity>();
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                result.Add(Transform(dr));
+            }
             return result;
         }
     }

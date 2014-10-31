@@ -68,6 +68,9 @@
   <ItemGroup>
     <Compile Include="Entity\QuestionBaseEntity.cs" />
     <Compile Include="Entity\QuestionQueryBaseEntity.cs" />
+    <Compile Include="IO\IOHelper.cs" />
+    <Compile Include="Model\ExportModel.cs" />
+    <Compile Include="Model\ExportTranslateModel.cs" />
     <Compile Include="Model\QuestionModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,6 +80,12 @@
     <Compile Include="Service\ServiceBase.cs" />
     <Compile Include="Service\SQLiteHelper.cs" />
     <Compile Include="Transform\QuestionBaseTransform.cs" />
+    <Compile Include="View\QuestionExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\QuestionExport.Designer.cs">
+      <DependentUpon>QuestionExport.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\QuestionImport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +115,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\QuestionExport.resx">
+      <DependentUpon>QuestionExport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\QuestionForm.resx">
       <DependentUpon>QuestionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,6 +161,21 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ExportDocuments\OriginMain.tpl.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExportDocuments\OriginPaper.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExportDocuments\translation\Answer.tpl.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExportDocuments\translation\Question.tpl.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExportDocuments\translation\QuestionHeader.tpl.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Require\photo1.jpg" />
     <Content Include="Require\photo2.jpg" />
     <Content Include="Service\doc\Sql.sql" />

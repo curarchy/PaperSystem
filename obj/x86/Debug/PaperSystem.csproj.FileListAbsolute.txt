@@ -8,3 +8,9 @@ D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.View.QuestionForm.resources
 D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.View.QuestionList.resources
 D:\Github\xjj\PaperSystem\bin\Debug\PaperSystem.exe.config
 D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.View.QuestionImport.resources
+D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.View.QuestionExport.resources
+D:\Github\xjj\PaperSystem\bin\Debug\ExportDocuments\OriginMain.tpl.html
+D:\Github\xjj\PaperSystem\bin\Debug\ExportDocuments\OriginPaper.html
+D:\Github\xjj\PaperSystem\bin\Debug\ExportDocuments\translation\Answer.tpl.html
+D:\Github\xjj\PaperSystem\bin\Debug\ExportDocuments\translation\Question.tpl.html
+D:\Github\xjj\PaperSystem\bin\Debug\ExportDocuments\translation\QuestionHeader.tpl.html

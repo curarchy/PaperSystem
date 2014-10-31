@@ -77,7 +77,8 @@ namespace PaperSystem.View
 
             foreach (DataGridViewRow item in selectedRows)
             {
-                result.Add(Convert.ToInt16(item.Cells["ID"].Value));
+                // id的话，有两个会出问题。。。
+                result.Add(Convert.ToInt16(item.Cells[0].Value));
             }
 
             return result;

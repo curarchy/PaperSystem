@@ -46,6 +46,7 @@
             // 
             // chooseFile
             // 
+            this.chooseFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chooseFile.Location = new System.Drawing.Point(927, 12);
             this.chooseFile.Name = "chooseFile";
             this.chooseFile.Size = new System.Drawing.Size(75, 23);
@@ -59,6 +60,9 @@
             this.questionGridView.AllowUserToAddRows = false;
             this.questionGridView.AllowUserToDeleteRows = false;
             this.questionGridView.AllowUserToOrderColumns = true;
+            this.questionGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.questionGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.questionGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -149,6 +153,7 @@
             // 
             // import
             // 
+            this.import.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.import.Location = new System.Drawing.Point(927, 650);
             this.import.Name = "import";
             this.import.Size = new System.Drawing.Size(75, 23);

@@ -18,6 +18,11 @@ namespace PaperSystem.Model
             return QuestionService.QueryQuestion(query);
         }
 
+        public static DataSet QueryQuestionByIDs(List<int> ids)
+        {
+            return QuestionService.QueryQuestionByIDs(ids);
+        }
+
         public static int DeleteQuestions(List<int> ids) 
         {
             return QuestionService.DeleteQuestions(ids);

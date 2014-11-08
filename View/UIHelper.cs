@@ -83,5 +83,29 @@ namespace PaperSystem.View
 
             return result;
         }
+
+
+        public static List<int> GetIndex(DataGridViewRowCollection rows)
+        {
+            List<int> result = new List<int>();
+            foreach (DataGridViewRow item in rows)
+            {
+                // id的话，有两个会出问题。。。
+                result.Add(Convert.ToInt16(item.Cells[0].Value));
+            }
+
+            return result;
+        }
+
+        public static List<int> GetCheckedList(CheckedListBox control)
+        {
+            
+            List<int> result = new List<int>();
+            foreach (CommonEntity item in control.CheckedItems)
+            {
+                result.Add(item.Key);
+            }
+            return result;
+        }
     }
 }

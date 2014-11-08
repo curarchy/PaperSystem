@@ -76,10 +76,12 @@
             this.btnAddRandom = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnExportPaper = new System.Windows.Forms.Button();
+            this.randomCount = new System.Windows.Forms.NumericUpDown();
             this.groupGrade.SuspendLayout();
             this.groupLevel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.questionGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.randomCount)).BeginInit();
             this.SuspendLayout();
             // 
             // groupGrade
@@ -372,7 +374,7 @@
             this.questionGridView.ReadOnly = true;
             this.questionGridView.RowTemplate.Height = 23;
             this.questionGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.questionGridView.Size = new System.Drawing.Size(1009, 354);
+            this.questionGridView.Size = new System.Drawing.Size(1009, 322);
             this.questionGridView.TabIndex = 23;
             // 
             // ID
@@ -462,7 +464,7 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9});
-            this.selectedGridView.Location = new System.Drawing.Point(12, 555);
+            this.selectedGridView.Location = new System.Drawing.Point(12, 523);
             this.selectedGridView.Name = "selectedGridView";
             this.selectedGridView.ReadOnly = true;
             this.selectedGridView.RowTemplate.Height = 23;
@@ -543,7 +545,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 519);
+            this.label4.Location = new System.Drawing.Point(12, 487);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 31;
@@ -580,11 +582,12 @@
             this.btnAddRandom.TabIndex = 34;
             this.btnAddRandom.Text = "随机添加";
             this.btnAddRandom.UseVisualStyleBackColor = true;
+            this.btnAddRandom.Click += new System.EventHandler(this.btnAddRandom_Click);
             // 
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.Location = new System.Drawing.Point(946, 514);
+            this.btnDelete.Location = new System.Drawing.Point(946, 482);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 35;
@@ -595,7 +598,7 @@
             // btnExportPaper
             // 
             this.btnExportPaper.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExportPaper.Location = new System.Drawing.Point(865, 514);
+            this.btnExportPaper.Location = new System.Drawing.Point(865, 482);
             this.btnExportPaper.Name = "btnExportPaper";
             this.btnExportPaper.Size = new System.Drawing.Size(75, 23);
             this.btnExportPaper.TabIndex = 36;
@@ -603,11 +606,30 @@
             this.btnExportPaper.UseVisualStyleBackColor = true;
             this.btnExportPaper.Click += new System.EventHandler(this.btnExportPaper_Click);
             // 
+            // randomCount
+            // 
+            this.randomCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.randomCount.Location = new System.Drawing.Point(865, 90);
+            this.randomCount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.randomCount.Name = "randomCount";
+            this.randomCount.Size = new System.Drawing.Size(75, 21);
+            this.randomCount.TabIndex = 37;
+            this.randomCount.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
             // QuestionExport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1033, 782);
+            this.ClientSize = new System.Drawing.Size(1033, 750);
+            this.Controls.Add(this.randomCount);
             this.Controls.Add(this.btnExportPaper);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAddRandom);
@@ -630,6 +652,7 @@
             this.groupLevel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.questionGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.randomCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -685,5 +708,6 @@
         private System.Windows.Forms.Button btnAddRandom;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnExportPaper;
+        private System.Windows.Forms.NumericUpDown randomCount;
     }
 }

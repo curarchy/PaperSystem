@@ -28,6 +28,11 @@ namespace PaperSystem.Model
             return QuestionService.DeleteQuestions(ids);
         }
 
+        /// <summary>
+        /// 根据ID查询问题
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static QuestionBaseEntity QuerySingle(int id)
         {
             DataSet ds = QuestionService.QuerySingle(id);

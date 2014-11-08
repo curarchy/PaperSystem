@@ -66,20 +66,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\ArticalEntity.cs" />
+    <Compile Include="Entity\ArticalQueryEntity.cs" />
+    <Compile Include="Entity\CommonEntity.cs" />
     <Compile Include="Entity\QuestionBaseEntity.cs" />
     <Compile Include="Entity\QuestionQueryBaseEntity.cs" />
     <Compile Include="IO\IOHelper.cs" />
+    <Compile Include="Model\ArticalModel.cs" />
+    <Compile Include="Model\CommonModel.cs" />
     <Compile Include="Model\ExportModel.cs" />
     <Compile Include="Model\ExportTranslateModel.cs" />
     <Compile Include="Model\QuestionModel.cs" />
+    <Compile Include="Model\WordProcessModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ArticalService.cs" />
+    <Compile Include="Service\CommonService.cs" />
     <Compile Include="Service\ExcelHelper.cs" />
     <Compile Include="Service\ExcelService.cs" />
     <Compile Include="Service\QuestionService.cs" />
     <Compile Include="Service\ServiceBase.cs" />
     <Compile Include="Service\SQLiteHelper.cs" />
+    <Compile Include="Transform\ArticalTransform.cs" />
+    <Compile Include="Transform\CommonTransform.cs" />
     <Compile Include="Transform\QuestionBaseTransform.cs" />
+    <Compile Include="View\ArticalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ArticalForm.Designer.cs">
+      <DependentUpon>ArticalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ArticalList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ArticalList.Designer.cs">
+      <DependentUpon>ArticalList.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\QuestionExport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,7 +126,19 @@
     <Compile Include="View\QuestionForm.Designer.cs">
       <DependentUpon>QuestionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Start.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Start.Designer.cs">
+      <DependentUpon>Start.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UIHelper.cs" />
+    <Compile Include="View\ViewContent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ViewContent.Designer.cs">
+      <DependentUpon>ViewContent.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -115,6 +149,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\ArticalForm.resx">
+      <DependentUpon>ArticalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ArticalList.resx">
+      <DependentUpon>ArticalList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\QuestionExport.resx">
       <DependentUpon>QuestionExport.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +166,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\QuestionList.resx">
       <DependentUpon>QuestionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Start.resx">
+      <DependentUpon>Start.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ViewContent.resx">
+      <DependentUpon>ViewContent.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
@@ -178,6 +224,7 @@
     </Content>
     <Content Include="Require\photo1.jpg" />
     <Content Include="Require\photo2.jpg" />
+    <Content Include="Require\TextFile1.txt" />
     <Content Include="Service\doc\Sql.sql" />
   </ItemGroup>
   <ItemGroup />

@@ -16,9 +16,7 @@ namespace PaperSystem.Transform
         {
             QuestionBaseEntity result = new QuestionBaseEntity();
             result.Answer = Convert.ToString(dataRow["Answer"]);
-            result.Artical = Convert.ToString(dataRow["Artical"]);
-            result.Collection = Convert.ToString(dataRow["Collection"]);
-            result.Grade = Convert.ToInt16(dataRow["Grade"]);
+            result.Artical = Convert.ToInt16(dataRow["Artical"]);
             result.ID = Convert.ToInt16(dataRow["ID"]);
             result.Keyword = Convert.ToString(dataRow["Keyword"]);            
             result.Level = Convert.ToInt16(dataRow["Level"]);
@@ -26,6 +24,7 @@ namespace PaperSystem.Transform
             result.Question = Convert.ToString(dataRow["Question"]);
             result.Type = Convert.ToInt16(dataRow["Type"]);
             result.Writter = Convert.ToString(dataRow["Writter"]);
+            result.Paragraph = Convert.ToInt16(dataRow["Paragraph"]);
 
             return result;
         }

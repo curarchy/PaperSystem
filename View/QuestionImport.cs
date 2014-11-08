@@ -49,15 +49,15 @@ namespace PaperSystem.View
                 {
                     QuestionBaseEntity question = new QuestionBaseEntity()
                     {
-                        Keyword = rows[i].Cells["Keyword"].Value.ToString(),
-                        Answer = rows[i].Cells["Answer"].Value.ToString(),
-                        Question = rows[i].Cells["Question"].Value.ToString(),
-                        Artical = rows[i].Cells["Artical"].Value.ToString(),
-                        Collection = rows[i].Cells["Collection"].Value.ToString(),
-                        Writter = rows[i].Cells["Writter"].Value.ToString(),
-                        Type = 0,
-                        Grade = 6,
-                        Level = 3
+                        //Keyword = rows[i].Cells["Keyword"].Value.ToString(),
+                        //Answer = rows[i].Cells["Answer"].Value.ToString(),
+                        //Question = rows[i].Cells["Question"].Value.ToString(),
+                        //Artical = rows[i].Cells["Artical"].Value.ToString(),
+                        //Collection = rows[i].Cells["Collection"].Value.ToString(),
+                        //Writter = rows[i].Cells["Writter"].Value.ToString(),
+                        //Type = 0,
+                        //Grade = 6,
+                        //Level = 3
                     };
                     try
                     {

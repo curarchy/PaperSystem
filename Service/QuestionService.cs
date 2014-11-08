@@ -16,8 +16,8 @@ namespace PaperSystem.Service
         public static int CreateQuestion(QuestionBaseEntity question) 
         {
             string connectString = DB_CONNECT_STRING;
-            string commandText = "INSERT INTO Question (Question, Answer, Type, Level, Memo, Writter, Artical, Collection, Grade, Keyword) ";
-            commandText += "VALUES(@Question, @Answer, @Type, @Level, @Memo, @Writter, @Artical, @Collection, @Grade, @Keyword);";
+            string commandText = "INSERT INTO Question (Question, Answer, Type, Level, Memo, Artical, Keyword, Paragraph) ";
+            commandText += "VALUES(@Question, @Answer, @Type, @Level, @Memo, @Artical, @Keyword, @Paragraph);";
 
             SQLiteParameter[] parameters = {
                                                new SQLiteParameter("@Question", question.Question),
@@ -27,9 +27,8 @@ namespace PaperSystem.Service
                                                new SQLiteParameter("@Memo", question.Memo),
                                                new SQLiteParameter("@Writter", question.Writter),
                                                new SQLiteParameter("@Artical", question.Artical),
-                                               new SQLiteParameter("@Collection", question.Collection),
-                                               new SQLiteParameter("@Grade", question.Grade),
-                                               new SQLiteParameter("@Keyword", question.Keyword)
+                                               new SQLiteParameter("@Keyword", question.Keyword),
+                                               new SQLiteParameter("@Paragraph", question.Paragraph)
                                            };
 
             return SQLiteHelper.ExecuteNonQuery(connectString, commandText, System.Data.CommandType.Text, parameters);
@@ -56,8 +55,6 @@ namespace PaperSystem.Service
                                                new SQLiteParameter("@Memo", question.Memo),
                                                new SQLiteParameter("@Writter", question.Writter),
                                                new SQLiteParameter("@Artical", question.Artical),
-                                               new SQLiteParameter("@Collection", question.Collection),
-                                               new SQLiteParameter("@Grade", question.Grade),
                                                new SQLiteParameter("@Keyword", question.Keyword)
                                            };
 
@@ -89,7 +86,13 @@ namespace PaperSystem.Service
         public static DataSet QueryQuestion(QuestionQueryBaseEntity query) 
         {
             string connectString = DB_CONNECT_STRING;
-            string commandText = "select ID, Level, Question, Answer, Type, Memo, Writter, Artical, Collection, Grade from Question t where 1=1 ";
+            string commandText = "select t.ID, t.Level, t.Question, t.Answer, t.Type, t.Memo, t.Artical, t.Grade, ";
+            commandText += "q.Value as GradeText, r.Value as LevelText, s.Value as TypeText, ";
+            commandText += "a.Title as Title, a.Writter as Writter, a.Grade as Grade ";
+            commandText += "from Question t inner join Grade q on a.Grade = q.Key ";
+            commandText += " inner join Level r on t.Level = r.Key ";
+            commandText += " inner join Type s on t.Type = s.Key ";
+            commandText += " inner join Artical a on t.Artical = a.ID where 1=1 ";
 
             List<SQLiteParameter> parameters = new List<SQLiteParameter>();
 
@@ -98,9 +101,8 @@ namespace PaperSystem.Service
                 commandText += "and (t.Question like '%' || @Keyword || '%' ";
                 commandText += " or '' || t.ID like '%' || @Keyword || '%' ";
                 commandText += " or t.Answer like '%' || @Keyword || '%' ";
-                commandText += " or t.Writter like '%' || @Keyword || '%' ";
-                commandText += " or t.Artical like '%' || @Keyword || '%' ";
-                commandText += " or t.Collection like '%' || @Keyword || '%' ";
+                commandText += " or a.Writter like '%' || @Keyword || '%' ";
+                commandText += " or a.Title like '%' || @Keyword || '%' ";
                 commandText += " or t.Keyword like '%' || @Keyword || '%' ";
                 commandText += " or t.Memo like '%' || @Keyword || '%') ";
                 SQLiteParameter param = new SQLiteParameter("@Keyword", query.Keyword);
@@ -129,16 +131,16 @@ namespace PaperSystem.Service
                 commandText += ")";
             }
 
-            //if (query.Type.Count > 0)
-            //{
-            //    commandText += " and t.Type in (";
-            //    foreach (int type in query.Type)
-            //    {
-            //        commandText += type.ToString() + ",";
-            //    }
-            //    commandText = commandText.TrimEnd(',');
-            //    commandText += ")";
-            //}
+            if (query.Type.Count > 0)
+            {
+                commandText += " and t.Type in (";
+                foreach (int type in query.Type)
+                {
+                    commandText += type.ToString() + ",";
+                }
+                commandText = commandText.TrimEnd(',');
+                commandText += ")";
+            }
 
             return SQLiteHelper.ExecuteDataSet(connectString, commandText, CommandType.Text, parameters.ToArray());
         }

@@ -79,5 +79,11 @@ namespace PaperSystem.View
             string fileName = ExportModel.BuildPaper(dataTabel);
             MessageBox.Show("已在目录" + fileName + "生成试卷");
         }
+
+        private void btnAddRandom_Click(object sender, EventArgs e)
+        {
+            //int count = Convert.ToInt16(this.randomCount.Value);
+            //List<int> Items = UIHelper.GetSelectedIndex(this.questionGridView.Rows);
+        }
     }
 }

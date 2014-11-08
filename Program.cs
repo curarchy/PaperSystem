@@ -14,7 +14,7 @@ namespace PaperSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new QuestionList());
+            Application.Run(new Start());
         }
     }
 }

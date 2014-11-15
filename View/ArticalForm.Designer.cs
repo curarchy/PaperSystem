@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArticalForm));
             this.title = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.writter = new System.Windows.Forms.TextBox();
@@ -164,6 +165,7 @@
             this.Controls.Add(this.content);
             this.Controls.Add(this.labelQuestion);
             this.Controls.Add(this.save);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ArticalForm";
             this.Text = "ArticalForm";
             this.ResumeLayout(false);

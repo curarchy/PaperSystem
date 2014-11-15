@@ -23,7 +23,6 @@ namespace PaperSystem.Transform
             result.Memo = Convert.ToString(dataRow["Memo"]);
             result.Question = Convert.ToString(dataRow["Question"]);
             result.Type = Convert.ToInt16(dataRow["Type"]);
-            result.Writter = Convert.ToString(dataRow["Writter"]);
             result.Paragraph = Convert.ToInt16(dataRow["Paragraph"]);
 
             return result;

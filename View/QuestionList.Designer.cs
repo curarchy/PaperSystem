@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuestionList));
             this.search = new System.Windows.Forms.Button();
             this.questionGridView = new System.Windows.Forms.DataGridView();
             this.create = new System.Windows.Forms.Button();
@@ -56,6 +57,7 @@
             this.Question = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Writter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paragraph = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.questionGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,13 +89,14 @@
             this.Artical,
             this.Question,
             this.Writter,
-            this.Answer});
+            this.Answer,
+            this.paragraph});
             this.questionGridView.Location = new System.Drawing.Point(30, 159);
             this.questionGridView.Name = "questionGridView";
             this.questionGridView.ReadOnly = true;
             this.questionGridView.RowTemplate.Height = 23;
             this.questionGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.questionGridView.Size = new System.Drawing.Size(883, 591);
+            this.questionGridView.Size = new System.Drawing.Size(883, 579);
             this.questionGridView.TabIndex = 2;
             this.questionGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.questionGridView_CellDoubleClick);
             // 
@@ -339,11 +342,19 @@
             this.Answer.Name = "Answer";
             this.Answer.ReadOnly = true;
             // 
+            // paragraph
+            // 
+            this.paragraph.DataPropertyName = "Paragraph";
+            this.paragraph.HeaderText = "段落";
+            this.paragraph.Name = "paragraph";
+            this.paragraph.ReadOnly = true;
+            this.paragraph.Width = 20;
+            // 
             // QuestionList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(925, 762);
+            this.ClientSize = new System.Drawing.Size(925, 750);
             this.Controls.Add(this.typeSelectedNone);
             this.Controls.Add(this.typeSelectedAll);
             this.Controls.Add(this.typeCheckedList);
@@ -364,6 +375,7 @@
             this.Controls.Add(this.create);
             this.Controls.Add(this.questionGridView);
             this.Controls.Add(this.search);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QuestionList";
             this.Text = "QuestionList";
             ((System.ComponentModel.ISupportInitialize)(this.questionGridView)).EndInit();
@@ -402,5 +414,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Question;
         private System.Windows.Forms.DataGridViewTextBoxColumn Writter;
         private System.Windows.Forms.DataGridViewTextBoxColumn Answer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn paragraph;
     }
 }

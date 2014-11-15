@@ -49,6 +49,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>2014110810303656_easyicon_net_512.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -207,6 +210,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="2014110810303656_easyicon_net_512.ico" />
     <Content Include="ExportDocuments\OriginMain.tpl.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -43,8 +43,8 @@ namespace PaperSystem.Service
         {
             string connectString = DB_CONNECT_STRING;
             string commandText = "UPDATE Question set Question = @Question, Answer = @Answer, ";
-            commandText += "Type = @Type, Level = @Level, Memo = @Memo, Writter = @Writter, ";
-            commandText += " Artical = @Artical, Collection = @Collection, Grade = @Grade, Keyword = @Keyword Where ID = @ID";
+            commandText += "Type = @Type, Level = @Level, Memo = @Memo, ";
+            commandText += " Artical = @Artical, Keyword = @Keyword, Paragraph = @Paragraph Where ID = @ID";
 
             SQLiteParameter[] parameters = {
                                                new SQLiteParameter("@ID", question.ID),
@@ -55,7 +55,8 @@ namespace PaperSystem.Service
                                                new SQLiteParameter("@Memo", question.Memo),
                                                new SQLiteParameter("@Writter", question.Writter),
                                                new SQLiteParameter("@Artical", question.Artical),
-                                               new SQLiteParameter("@Keyword", question.Keyword)
+                                               new SQLiteParameter("@Keyword", question.Keyword),
+                                               new SQLiteParameter("@Paragraph", question.Paragraph)
                                            };
 
             return SQLiteHelper.ExecuteNonQuery(connectString, commandText, System.Data.CommandType.Text, parameters);
@@ -86,7 +87,7 @@ namespace PaperSystem.Service
         public static DataSet QueryQuestion(QuestionQueryBaseEntity query) 
         {
             string connectString = DB_CONNECT_STRING;
-            string commandText = "select t.ID, t.Level, t.Question, t.Answer, t.Type, t.Memo, t.Artical, t.Grade, ";
+            string commandText = "select t.ID, t.Level, t.Question, t.Answer, t.Type, t.Memo, t.Artical, t.Grade, t.Paragraph, ";
             commandText += "q.Value as GradeText, r.Value as LevelText, s.Value as TypeText, ";
             commandText += "a.Title as Title, a.Writter as Writter, a.Grade as Grade ";
             commandText += "from Question t inner join Grade q on a.Grade = q.Key ";

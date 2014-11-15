@@ -62,5 +62,21 @@ namespace PaperSystem.Model
             }
             return null;
         }
+
+        /// <summary>
+        /// 根据名字查询文章
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static ArticalEntity QuerySingle(string name)
+        {
+            DataSet ds = ArticalService.QuerySingle(name);
+            DataRow dr = ds.Tables[0].Rows[0];
+            if (dr != null)
+            {
+                return ArticalTransform.Transform(dr);
+            }
+            return null;
+        }
     }
 }

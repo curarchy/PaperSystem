@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 using PaperSystem.Entity;
 using PaperSystem.Model;
-using System.Data;
 
 namespace PaperSystem.View
 {
@@ -10,6 +10,7 @@ namespace PaperSystem.View
     {
         private string formType = "create";
         private int ID = 0;
+        private QuestionBaseEntity Question { get; set; }
 
         public QuestionForm()
         {
@@ -20,7 +21,8 @@ namespace PaperSystem.View
         public QuestionForm(string type, int id)
         {
             InitializeComponent();
-            if (type == "modify") 
+            InitControls();
+            if (type == "modify")
             {
                 formType = type;
                 this.save.Text = "修改";
@@ -42,8 +44,7 @@ namespace PaperSystem.View
             this.type.DataSource = typeDataSet.Tables[0];
 
             DataSet artical = ArticalModel.QueryAllArtical();
-            this.articalGridView.DataSource = artical.Tables[0];
-            this.articalGridView.Refresh();
+            this.articalGridView.DataSource = artical.Tables[0];            
         }
 
         private void save_Click(object sender, EventArgs e)
@@ -68,7 +69,7 @@ namespace PaperSystem.View
             }
         }
 
-        public QuestionBaseEntity GetEntity() 
+        public QuestionBaseEntity GetEntity()
         {
             QuestionBaseEntity question = new QuestionBaseEntity();
 
@@ -79,7 +80,7 @@ namespace PaperSystem.View
             question.Memo = this.memo.Text.Trim();
             question.ID = ID;
             question.Artical = Convert.ToInt16(this.articalGridView.SelectedRows[0].Cells["articalID"].Value);
-            question.Keyword = this.keyword.Text.Trim();
+            question.Keyword = question.Type == 0 ? this.keyword.Text.Trim() : "";
             question.Paragraph = Convert.ToInt16(this.paragraph.Value);
 
             return question;
@@ -102,16 +103,15 @@ namespace PaperSystem.View
 
         public void InitData(QuestionBaseEntity entity)
         {
-            //UIHelper.SetCheckedRadioButton(this.type.Controls, entity.Type);
-            //UIHelper.SetCheckedRadioButton(this.level.Controls, entity.Level);
-            //this.answer.Text = entity.Answer;
-            //this.question.Text = entity.Question;
-            //this.memo.Text = entity.Memo;
-            //this.writter.Text = entity.Writter;
-            //this.artical.Text = entity.Artical;
-            //this.collection.Text = entity.Collection;
-            //this.grade.SelectedIndex = entity.Grade;
-            //this.keyword.Text = entity.Keyword;
+            this.type.SelectedValue = entity.Type;
+            this.level.SelectedValue = entity.Level;
+            this.answer.Text = entity.Answer;
+            this.question.Text = entity.Question;
+            this.memo.Text = entity.Memo;
+            this.keyword.Text = entity.Keyword;
+            this.paragraph.Value = entity.Paragraph;
+
+            Question = entity;
         }
 
         private void guessParagraph_Click(object sender, EventArgs e)
@@ -125,7 +125,17 @@ namespace PaperSystem.View
             }
 
             int id = Convert.ToInt16(this.articalGridView.SelectedRows[0].Cells["articalID"].Value);
-            int count = WordProcessModel.GuessParagraph(id, words);
+
+            int type = Convert.ToInt16(this.type.SelectedValue);
+            int count = 0;
+            if (type == 2)
+            {
+                count = WordProcessModel.GuessParagraphEX(id, words);
+            }
+            else
+            {
+                count = WordProcessModel.GuessParagraph(id, words);
+            }
             this.paragraph.Value = count;
         }
 
@@ -136,6 +146,102 @@ namespace PaperSystem.View
 
             ViewContent viewContent = new ViewContent(artical.Content);
             viewContent.Show();
+        }
+
+        /// <summary>
+        /// 题型切换
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.description.Text = "";
+            int type = Convert.ToInt16(this.type.SelectedValue);
+            switch (type)
+            {
+                case 1:
+                    this.keyword.Show();
+                    this.labKeyword.Show();
+                    break;
+                default:
+                     this.keyword.Hide();
+                    this.labKeyword.Hide();
+                    break;
+            }
+        }
+
+        private void keyword_Enter(object sender, EventArgs e)
+        {
+            int type = Convert.ToInt16(this.type.SelectedValue);
+            switch (type)
+            { 
+                case 1:
+                    this.description.Text = "请输入加点字。如\"举\"。";
+                    break;
+                default:
+                    this.description.Text = "";
+                    break;
+            }
+        }
+
+        private void question_Enter(object sender, EventArgs e)
+        {
+            int type = Convert.ToInt16(this.type.SelectedValue);
+            switch (type)
+            {
+                case 1:
+                    this.description.Text = "请输入加点字所在语句。如\"举头望明月\"。";
+                    break;
+                case 2:
+                    this.description.Text = "请输入题干。如\"鸢飞戾天者，_______。经纶世务者，_______。\"。";
+                    break;
+                case 3:
+                    this.description.Text = "请输入题干。如\"凤凰山下雨初，水风清，晚霞明。\"。";
+                    break;
+                default:
+                    this.description.Text = "";
+                    break;
+            }
+        }
+
+        private void answer_Enter(object sender, EventArgs e)
+        {
+            int type = Convert.ToInt16(this.type.SelectedValue);
+            switch (type)
+            {
+                case 1:
+                    this.description.Text = "请输答案。如\"抬\"。";
+                    break;
+                case 2:
+                    this.description.Text = "请输入答案。间隔用|隔开。如\"望峰息心|窥谷忘反\"。";
+                    break;
+                case 3:
+                    this.description.Text = "请输入译文。如\"雨后初晴的凤凰山下，云淡风清，明丽的晚霞映衬着湖光山色。\"。";
+                    break;
+                default:
+                    this.description.Text = "";
+                    break;
+            }
+        }
+
+        private void memo_Enter(object sender, EventArgs e)
+        {
+            this.description.Text = "请输入备注。";
+        }
+
+        private void articalGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (Question != null)
+            {
+                for (int i = 0; i < articalGridView.Rows.Count; i++)
+                {
+                    int id = Convert.ToInt16(this.articalGridView.Rows[i].Cells["articalID"].Value);
+                    if (id == Question.Artical)
+                    {
+                        this.articalGridView.Rows[i].Selected = true;
+                    }
+                }
+            }
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuestionExport));
             this.groupGrade = new System.Windows.Forms.GroupBox();
             this.checkBox14 = new System.Windows.Forms.CheckBox();
             this.checkBox13 = new System.Windows.Forms.CheckBox();
@@ -644,6 +645,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.keyword);
             this.Controls.Add(this.questionGridView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QuestionExport";
             this.Text = "QuestionExport";
             this.groupGrade.ResumeLayout(false);

@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuestionForm));
             this.labelType = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.description = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.paragraph = new System.Windows.Forms.NumericUpDown();
             this.type = new System.Windows.Forms.ComboBox();
             this.guessParagraph = new System.Windows.Forms.Button();
@@ -42,7 +45,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.level = new System.Windows.Forms.ComboBox();
             this.keyword = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.labKeyword = new System.Windows.Forms.Label();
             this.close = new System.Windows.Forms.Button();
             this.question = new System.Windows.Forms.RichTextBox();
             this.labelQuestion = new System.Windows.Forms.Label();
@@ -52,7 +55,6 @@
             this.labelMemo = new System.Windows.Forms.Label();
             this.memo = new System.Windows.Forms.RichTextBox();
             this.save = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paragraph)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.articalGridView)).BeginInit();
@@ -69,6 +71,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.description);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.paragraph);
             this.panel1.Controls.Add(this.type);
@@ -78,7 +81,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.level);
             this.panel1.Controls.Add(this.keyword);
-            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.labKeyword);
             this.panel1.Controls.Add(this.close);
             this.panel1.Controls.Add(this.question);
             this.panel1.Controls.Add(this.labelQuestion);
@@ -94,6 +97,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(933, 605);
             this.panel1.TabIndex = 2;
+            // 
+            // description
+            // 
+            this.description.AutoSize = true;
+            this.description.Location = new System.Drawing.Point(415, 34);
+            this.description.Name = "description";
+            this.description.Size = new System.Drawing.Size(0, 12);
+            this.description.TabIndex = 53;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(38, 571);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(413, 12);
+            this.label2.TabIndex = 52;
+            this.label2.Text = "猜测题干在文章的第几段。如果没有匹配到，则是0.请双击文章，手动匹配。";
             // 
             // paragraph
             // 
@@ -120,8 +140,9 @@
             this.type.Location = new System.Drawing.Point(83, 31);
             this.type.Name = "type";
             this.type.Size = new System.Drawing.Size(108, 20);
-            this.type.TabIndex = 50;
+            this.type.TabIndex = 10;
             this.type.ValueMember = "Key";
+            this.type.SelectedIndexChanged += new System.EventHandler(this.type_SelectedIndexChanged);
             // 
             // guessParagraph
             // 
@@ -164,7 +185,9 @@
             this.articalGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.articalGridView.Size = new System.Drawing.Size(369, 414);
             this.articalGridView.TabIndex = 46;
+            this.articalGridView.TabStop = false;
             this.articalGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.articalGridView_CellDoubleClick);
+            this.articalGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.articalGridView_DataBindingComplete);
             // 
             // Grade
             // 
@@ -213,7 +236,7 @@
             this.level.Location = new System.Drawing.Point(460, 83);
             this.level.Name = "level";
             this.level.Size = new System.Drawing.Size(108, 20);
-            this.level.TabIndex = 44;
+            this.level.TabIndex = 20;
             this.level.ValueMember = "Key";
             // 
             // keyword
@@ -221,16 +244,17 @@
             this.keyword.Location = new System.Drawing.Point(460, 125);
             this.keyword.Name = "keyword";
             this.keyword.Size = new System.Drawing.Size(439, 21);
-            this.keyword.TabIndex = 28;
+            this.keyword.TabIndex = 30;
+            this.keyword.Enter += new System.EventHandler(this.keyword_Enter);
             // 
-            // label8
+            // labKeyword
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(413, 128);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 12);
-            this.label8.TabIndex = 27;
-            this.label8.Text = "例字：";
+            this.labKeyword.AutoSize = true;
+            this.labKeyword.Location = new System.Drawing.Point(413, 128);
+            this.labKeyword.Name = "labKeyword";
+            this.labKeyword.Size = new System.Drawing.Size(41, 12);
+            this.labKeyword.TabIndex = 27;
+            this.labKeyword.Text = "例字：";
             // 
             // close
             // 
@@ -244,11 +268,14 @@
             // 
             // question
             // 
+            this.question.EnableAutoDragDrop = true;
+            this.question.ImeMode = System.Windows.Forms.ImeMode.On;
             this.question.Location = new System.Drawing.Point(460, 164);
             this.question.Name = "question";
             this.question.Size = new System.Drawing.Size(439, 176);
-            this.question.TabIndex = 5;
+            this.question.TabIndex = 40;
             this.question.Text = "";
+            this.question.Enter += new System.EventHandler(this.question_Enter);
             // 
             // labelQuestion
             // 
@@ -264,8 +291,9 @@
             this.answer.Location = new System.Drawing.Point(460, 346);
             this.answer.Name = "answer";
             this.answer.Size = new System.Drawing.Size(439, 85);
-            this.answer.TabIndex = 17;
+            this.answer.TabIndex = 50;
             this.answer.Text = "";
+            this.answer.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label3
             // 
@@ -299,27 +327,19 @@
             this.memo.Location = new System.Drawing.Point(460, 437);
             this.memo.Name = "memo";
             this.memo.Size = new System.Drawing.Size(439, 85);
-            this.memo.TabIndex = 7;
+            this.memo.TabIndex = 60;
             this.memo.Text = "";
+            this.memo.Enter += new System.EventHandler(this.memo_Enter);
             // 
             // save
             // 
             this.save.Location = new System.Drawing.Point(824, 540);
             this.save.Name = "save";
             this.save.Size = new System.Drawing.Size(75, 23);
-            this.save.TabIndex = 8;
+            this.save.TabIndex = 70;
             this.save.Text = "保存";
             this.save.UseVisualStyleBackColor = true;
             this.save.Click += new System.EventHandler(this.save_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 571);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(413, 12);
-            this.label2.TabIndex = 52;
-            this.label2.Text = "猜测题干在文章的第几段。如果没有匹配到，则是0.请双击文章，手动匹配。";
             // 
             // QuestionForm
             // 
@@ -327,6 +347,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 605);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QuestionForm";
             this.Text = "QuestionForm";
             this.panel1.ResumeLayout(false);
@@ -351,7 +372,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button close;
         private System.Windows.Forms.TextBox keyword;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labKeyword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox level;
         private System.Windows.Forms.Button guessParagraph;
@@ -364,5 +385,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Writter;
         private System.Windows.Forms.NumericUpDown paragraph;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label description;
     }
 }

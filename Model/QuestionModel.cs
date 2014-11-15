@@ -49,9 +49,22 @@ namespace PaperSystem.Model
             return QuestionService.ModifyQuestion(question);
         }
 
-        public static DataSet GetQuestionsFromExcel(string file)
+        public static DataTable GetQuestionsFromExcel(string file)
         {
-            return ExcelService.GetQuestionsFromExcel(file);
+            DataTable dt = new DataTable();
+
+            List<string> tables = new List<string>()
+            {
+                "加点词解释", "翻译", "默写"
+            };
+
+            foreach (string table in tables)
+            {
+                DataSet tableDs = ExcelService.GetQuestionsFromExcel(file, table);
+                dt.Merge(tableDs.Tables[0], true, MissingSchemaAction.Add);
+            }
+
+            return dt;
         }
     }
 }

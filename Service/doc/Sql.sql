@@ -7,6 +7,8 @@
     Memo TEXT
 );
 
+INSERT INTO Artical (ID, Title, Content, Writter, Grade, Memo) values (0, "无", "无", "无", 9, "默认文章。勿删。");
+
 CREATE TABLE Grade (
     ID INTEGER PRIMARY KEY,
     Key NUMERIC,
@@ -41,7 +43,9 @@ CREATE TABLE Type (
     Value TEXT
 );
 
-INSERT INTO Type (Key, Value) values (1, "翻译");
+INSERT INTO Type (Key, Value) values (1, "加点词解释");
+INSERT INTO Type (key, Value) values (2, "默写");
+INSERT INTO Type (Key, Value) values (3, "翻译");
 
 DROP TABLE Question;
 

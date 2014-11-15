@@ -118,5 +118,22 @@ namespace PaperSystem.Service
 
             return SQLiteHelper.ExecuteDataSet(connectString, commandText, CommandType.Text, parameters);
         }
+
+        /// <summary>
+        /// 查询单个实体
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static DataSet QuerySingle(string name)
+        {
+            string connectString = DB_CONNECT_STRING;
+            string commandText = "select * from Artical t where t.Title = @Title ";
+
+            SQLiteParameter[] parameters = {
+                                               new SQLiteParameter("@Title", name)
+                                           };
+
+            return SQLiteHelper.ExecuteDataSet(connectString, commandText, CommandType.Text, parameters);
+        }
     }
 }

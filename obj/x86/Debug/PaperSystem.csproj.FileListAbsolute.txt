@@ -14,7 +14,6 @@ D:\Github\xjj\PaperSystem\bin\Debug\ExportDocuments\OriginPaper.html
 D:\Github\xjj\PaperSystem\bin\Debug\ExportDocuments\translation\Answer.tpl.html
 D:\Github\xjj\PaperSystem\bin\Debug\ExportDocuments\translation\Question.tpl.html
 D:\Github\xjj\PaperSystem\bin\Debug\ExportDocuments\translation\QuestionHeader.tpl.html
-D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.csprojResolveAssemblyReference.cache
 D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.View.ArticalForm.resources
 D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.View.ArticalList.resources
 D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.View.Start.resources

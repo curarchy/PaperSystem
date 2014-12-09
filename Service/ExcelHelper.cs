@@ -35,6 +35,9 @@ namespace PaperSystem.Service
                     strExcel += "select 序号 as ID, 答案 as Answer, 例句 as Question, 篇目 as Artical, 备注 as Memo1, 难度 as Level1, ";
                     strExcel += " '2' as Type, '默写' as TypeText from [默写$]";
                     break;
+                case "文章":
+                    strExcel += "select 篇目 as Title, 作者 as Writter, 正文 as Content, 备注 as Memo1, 学期 as Grade from [文章$]";
+                    break;
                 default:
                     break;
             }

@@ -1,9 +1,9 @@
-﻿using System.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 using PaperSystem.Entity;
 using PaperSystem.Model;
-using System;
-using System.Collections.Generic;
 
 namespace PaperSystem.View
 {
@@ -12,12 +12,6 @@ namespace PaperSystem.View
         public QuestionImport()
         {
             InitializeComponent();
-            InitControls();
-        }
-
-        private void InitControls()
-        {
-            //this.questionGridView.AutoGenerateColumns = false;
         }
 
         private void chooseFile_Click(object sender, System.EventArgs e)
@@ -49,7 +43,7 @@ namespace PaperSystem.View
             }
             MessageBoxButtons messButton = MessageBoxButtons.OKCancel;
             DialogResult dr = MessageBox.Show("确定要导入所选择的" + rows.Count.ToString() + "道题目么？", "导入题库", messButton);
-            if (dr == System.Windows.Forms.DialogResult.OK) {
+            if (dr == DialogResult.OK) {
                 int success = 0;
                 int faild = 0;
 

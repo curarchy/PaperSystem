@@ -18,7 +18,11 @@ namespace PaperSystem.Transform
             result.Answer = Convert.ToString(dataRow["Answer"]);
             result.Artical = Convert.ToInt16(dataRow["Artical"]);
             result.ID = Convert.ToInt16(dataRow["ID"]);
-            result.Keyword = Convert.ToString(dataRow["Keyword"]);            
+            try { 
+            result.Keyword = Convert.ToString(dataRow["Keyword"]);  
+            }
+            catch {}
+                      
             result.Level = Convert.ToInt16(dataRow["Level"]);
             result.Memo = Convert.ToString(dataRow["Memo"]);
             result.Question = Convert.ToString(dataRow["Question"]);

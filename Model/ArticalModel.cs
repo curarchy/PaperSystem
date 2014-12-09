@@ -78,5 +78,23 @@ namespace PaperSystem.Model
             }
             return null;
         }
+
+        public static DataTable GetArticalsFromExcel(string file)
+        {
+            DataTable dt = new DataTable();
+
+            List<string> tables = new List<string>()
+            {
+                "文章"
+            };
+
+            foreach (string table in tables)
+            {
+                DataSet tableDs = ExcelService.GetDataSetFromExcel(file, table);
+                dt.Merge(tableDs.Tables[0], true, MissingSchemaAction.Add);
+            }
+
+            return dt;
+        }
     }
 }

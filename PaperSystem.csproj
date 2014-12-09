@@ -59,6 +59,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\System.Data.SQLite.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -77,8 +78,10 @@
     <Compile Include="IO\IOHelper.cs" />
     <Compile Include="Model\ArticalModel.cs" />
     <Compile Include="Model\CommonModel.cs" />
+    <Compile Include="Model\ExportExpainModel.cs" />
     <Compile Include="Model\ExportModel.cs" />
     <Compile Include="Model\ExportTranslateModel.cs" />
+    <Compile Include="Model\ExportWriteModel.cs" />
     <Compile Include="Model\QuestionModel.cs" />
     <Compile Include="Model\WordProcessModel.cs" />
     <Compile Include="Program.cs" />
@@ -98,6 +101,12 @@
     </Compile>
     <Compile Include="View\ArticalForm.Designer.cs">
       <DependentUpon>ArticalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ArticalImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ArticalImport.Designer.cs">
+      <DependentUpon>ArticalImport.cs</DependentUpon>
     </Compile>
     <Compile Include="View\ArticalList.cs">
       <SubType>Form</SubType>
@@ -155,6 +164,9 @@
     <EmbeddedResource Include="View\ArticalForm.resx">
       <DependentUpon>ArticalForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ArticalImport.resx">
+      <DependentUpon>ArticalImport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ArticalList.resx">
       <DependentUpon>ArticalList.cs</DependentUpon>
     </EmbeddedResource>
@@ -211,6 +223,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="2014110810303656_easyicon_net_512.ico" />
+    <Content Include="ExportDocuments\explain\Answer.tpl.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExportDocuments\explain\Question.tpl.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExportDocuments\explain\QuestionHeader.tpl.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="ExportDocuments\OriginMain.tpl.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -224,6 +245,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="ExportDocuments\translation\QuestionHeader.tpl.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExportDocuments\write\Answer.tpl.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExportDocuments\write\Question.tpl.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExportDocuments\write\QuestionHeader.tpl.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Require\photo1.jpg" />

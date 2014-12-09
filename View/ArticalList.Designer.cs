@@ -44,6 +44,7 @@
             this.gradeCheckedList = new System.Windows.Forms.CheckedListBox();
             this.gradeSelectedAll = new System.Windows.Forms.LinkLabel();
             this.gradeSelectedNone = new System.Windows.Forms.LinkLabel();
+            this.import = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.articalGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -158,7 +159,7 @@
             // search
             // 
             this.search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.search.Location = new System.Drawing.Point(758, 28);
+            this.search.Location = new System.Drawing.Point(744, 28);
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(75, 23);
             this.search.TabIndex = 24;
@@ -197,11 +198,22 @@
             this.gradeSelectedNone.Text = "全不选";
             this.gradeSelectedNone.Click += new System.EventHandler(this.gradeSelectedNone_Click);
             // 
+            // import
+            // 
+            this.import.Location = new System.Drawing.Point(744, 72);
+            this.import.Name = "import";
+            this.import.Size = new System.Drawing.Size(75, 23);
+            this.import.TabIndex = 49;
+            this.import.Text = "导入";
+            this.import.UseVisualStyleBackColor = true;
+            this.import.Click += new System.EventHandler(this.import_Click);
+            // 
             // ArticalList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 786);
+            this.Controls.Add(this.import);
             this.Controls.Add(this.gradeSelectedNone);
             this.Controls.Add(this.gradeSelectedAll);
             this.Controls.Add(this.gradeCheckedList);
@@ -238,5 +250,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Writter;
         private System.Windows.Forms.DataGridViewTextBoxColumn Question;
         private System.Windows.Forms.LinkLabel gradeSelectedNone;
+        private System.Windows.Forms.Button import;
     }
 }

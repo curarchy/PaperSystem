@@ -1,26 +1,31 @@
 ﻿using System.Collections.Generic;
-using System.Data;
 using PaperSystem.Entity;
 using PaperSystem.IO;
-using PaperSystem.Transform;
 
 namespace PaperSystem.Model
 {
     public class ExportModel
     {
-        public static string BuildPaper(List<QuestionBaseEntity> questions)
-        { 
-            //暂时只有翻译
-            string template = IOHelper.GetStringFromFile(@"ExportDocuments/OriginMain.tpl.html");
-            string content = ExportTranslateModel.BuildSection("一. ", questions);
-            string paper = template.Replace("${content}", content);
-            return IOHelper.WriteStringToFile(paper);
-        }
-
-        public static string BuildPaper(DataTable dataTable)
+        public static string BuildPaper(List<QuestionBaseEntity> questions, int type, string index)
         {
-            List<QuestionBaseEntity> questions = QuestionBaseTransform.Transform(dataTable);
-            return BuildPaper(questions);
+            switch (type)
+            { 
+                case 1:
+                    return ExportExplainModel.BuildSection(index, questions);
+                case 2:
+                    return ExportWriteModel.BuildSection(index, questions);
+                case 3:
+                    return ExportTranslateModel.BuildSection(index, questions);
+                default:
+                    return "";
+            }
+        }
+        
+        public static string WriteStringToFile(string content)
+        {
+            string template = IOHelper.GetStringFromFile(@"ExportDocuments/OriginMain.tpl.html");
+            string paper = template.Replace("${content}", content);
+            return IOHelper.WriteStringToFile(content);
         }
     }
 }

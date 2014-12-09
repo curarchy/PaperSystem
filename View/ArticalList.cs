@@ -62,6 +62,7 @@ namespace PaperSystem.View
         private void btnDelete_Click(object sender, EventArgs e)
         {
             List<int> selectedItems = UIHelper.GetSelectedIndex(this.articalGridView);
+            selectedItems.Remove(0);
             ArticalModel.DeleteArticals(selectedItems);
 
             Search();
@@ -88,6 +89,13 @@ namespace PaperSystem.View
             {
                 this.gradeCheckedList.SetItemCheckState(i, CheckState.Checked);
             }
+        }
+
+        private void import_Click(object sender, EventArgs e)
+        {
+            ArticalImport articalImport = new ArticalImport();
+            articalImport.FormClosed += new FormClosedEventHandler(articalForm_FormClosed);
+            articalImport.ShowDialog();   
         }
     }
 }

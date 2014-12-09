@@ -18,3 +18,10 @@ D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.View.ArticalForm.resources
 D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.View.ArticalList.resources
 D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.View.Start.resources
 D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.View.ViewContent.resources
+D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.View.ArticalImport.resources
+D:\Github\xjj\PaperSystem\bin\Debug\ExportDocuments\explain\Answer.tpl.html
+D:\Github\xjj\PaperSystem\bin\Debug\ExportDocuments\explain\Question.tpl.html
+D:\Github\xjj\PaperSystem\bin\Debug\ExportDocuments\explain\QuestionHeader.tpl.html
+D:\Github\xjj\PaperSystem\bin\Debug\ExportDocuments\write\Answer.tpl.html
+D:\Github\xjj\PaperSystem\bin\Debug\ExportDocuments\write\Question.tpl.html
+D:\Github\xjj\PaperSystem\bin\Debug\ExportDocuments\write\QuestionHeader.tpl.html

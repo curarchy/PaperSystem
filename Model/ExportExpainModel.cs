@@ -4,15 +4,16 @@ using PaperSystem.IO;
 
 namespace PaperSystem.Model
 {
-    public class ExportTranslateModel
+    public class ExportExplainModel
     {
         public const string UNDERLINE = "_________";
 
         public static string BuildQuestion(QuestionBaseEntity question, int index = 1)
         {
-            string template = IOHelper.GetStringFromFile(@"ExportDocuments/translation/Question.tpl.html");
+            string template = IOHelper.GetStringFromFile(@"ExportDocuments/explain/Question.tpl.html");
             return template.Replace("${index}", index.ToString())
                 .Replace("${Question}", question.Question)
+                .Replace("${Keyword}", question.Keyword)
                 .Replace("${Answer}", UNDERLINE);
         }
 
@@ -21,7 +22,7 @@ namespace PaperSystem.Model
             string result = "";
             int i = 0;
             foreach (QuestionBaseEntity question in questions)
-            { 
+            {
                 i++;
                 result += BuildQuestion(question, i);
             }
@@ -30,7 +31,7 @@ namespace PaperSystem.Model
 
         public static string BuildHeader(string index)
         {
-            string template = IOHelper.GetStringFromFile(@"ExportDocuments/translation/QuestionHeader.tpl.html");
+            string template = IOHelper.GetStringFromFile(@"ExportDocuments/explain/QuestionHeader.tpl.html");
             return template.Replace("${index}", index);
         }
 
@@ -38,6 +39,5 @@ namespace PaperSystem.Model
         {
             return BuildHeader(index) + BuildQuestions(questions);
         }
-
     }
 }

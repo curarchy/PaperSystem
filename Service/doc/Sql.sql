@@ -64,3 +64,6 @@ CREATE TABLE Question (
 
 select ID, Level, MainContent, Type, Memo from Question t where 1=1
 
+
+delete from Question;
+delete from Artical where id != 0;

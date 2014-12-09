@@ -154,8 +154,14 @@ namespace PaperSystem.Service
         public static DataSet QueryQuestionByIDs(List<int> ids)
         {
             string connectString = DB_CONNECT_STRING;
-            string commandText = "select ID, Level, Question, Answer, Type, Memo, Writter, Artical, Collection, Grade, Keyword";
-            commandText += " from Question where ID in ( ";
+            string commandText = "select t.ID, t.Level, t.Question, t.Answer, t.Type, t.Memo, t.Artical, t.Grade, t.Paragraph, t.Keyword, ";
+            commandText += "q.Value as GradeText, r.Value as LevelText, s.Value as TypeText, ";
+            commandText += "a.Title as Title, a.Writter as Writter, a.Grade as Grade ";
+            commandText += "from Question t inner join Grade q on a.Grade = q.Key ";
+            commandText += " inner join Level r on t.Level = r.Key ";
+            commandText += " inner join Type s on t.Type = s.Key ";
+            commandText += " inner join Artical a on t.Artical = a.ID where 1=1 ";
+            commandText += " and t.ID in ( ";
             foreach (int id in ids)
             {
                 commandText += id.ToString() + ",";

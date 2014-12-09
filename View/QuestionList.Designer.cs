@@ -348,7 +348,7 @@
             this.paragraph.HeaderText = "段落";
             this.paragraph.Name = "paragraph";
             this.paragraph.ReadOnly = true;
-            this.paragraph.Width = 20;
+            this.paragraph.Width = 40;
             // 
             // QuestionList
             // 

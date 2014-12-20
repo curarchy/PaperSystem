@@ -66,6 +66,13 @@
             this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.translationPoint = new System.Windows.Forms.NumericUpDown();
+            this.writePoint = new System.Windows.Forms.NumericUpDown();
+            this.explainPoint = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.typeSelectedNone = new System.Windows.Forms.LinkLabel();
             this.typeSelectedAll = new System.Windows.Forms.LinkLabel();
             this.typeCheckedList = new System.Windows.Forms.CheckedListBox();
@@ -92,6 +99,13 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paragraph = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chartReport = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label9 = new System.Windows.Forms.Label();
+            this.fileName = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.chooseFolder = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.path = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.randomCount)).BeginInit();
             this.selectedQuestions.SuspendLayout();
             this.selectedExplainArea.SuspendLayout();
@@ -100,6 +114,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.selectedTranslation)).BeginInit();
             this.selectedWriteArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectedWrite)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.translationPoint)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.writePoint)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.explainPoint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartReport)).BeginInit();
             this.SuspendLayout();
@@ -108,7 +126,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 487);
+            this.label4.Location = new System.Drawing.Point(12, 479);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 31;
@@ -150,7 +168,7 @@
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.Location = new System.Drawing.Point(946, 715);
+            this.btnDelete.Location = new System.Drawing.Point(946, 707);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 35;
@@ -161,7 +179,7 @@
             // btnExportPaper
             // 
             this.btnExportPaper.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExportPaper.Location = new System.Drawing.Point(865, 715);
+            this.btnExportPaper.Location = new System.Drawing.Point(865, 707);
             this.btnExportPaper.Name = "btnExportPaper";
             this.btnExportPaper.Size = new System.Drawing.Size(75, 23);
             this.btnExportPaper.TabIndex = 36;
@@ -192,6 +210,7 @@
             this.selectedQuestions.Controls.Add(this.selectedExplainArea);
             this.selectedQuestions.Controls.Add(this.selectedTranslationArea);
             this.selectedQuestions.Controls.Add(this.selectedWriteArea);
+            this.selectedQuestions.Controls.Add(this.tabPage1);
             this.selectedQuestions.Location = new System.Drawing.Point(14, 515);
             this.selectedQuestions.Name = "selectedQuestions";
             this.selectedQuestions.SelectedIndex = 0;
@@ -206,7 +225,7 @@
             this.selectedExplainArea.Padding = new System.Windows.Forms.Padding(3);
             this.selectedExplainArea.Size = new System.Drawing.Size(580, 197);
             this.selectedExplainArea.TabIndex = 0;
-            this.selectedExplainArea.Text = "加点词解释";
+            this.selectedExplainArea.Text = "翻译";
             this.selectedExplainArea.UseVisualStyleBackColor = true;
             // 
             // selectedExplain
@@ -297,7 +316,7 @@
             this.selectedTranslationArea.Padding = new System.Windows.Forms.Padding(3);
             this.selectedTranslationArea.Size = new System.Drawing.Size(580, 197);
             this.selectedTranslationArea.TabIndex = 1;
-            this.selectedTranslationArea.Text = "翻译";
+            this.selectedTranslationArea.Text = "加点词解释";
             this.selectedTranslationArea.UseVisualStyleBackColor = true;
             // 
             // selectedTranslation
@@ -471,6 +490,121 @@
             this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
             this.dataGridViewTextBoxColumn30.ReadOnly = true;
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.path);
+            this.tabPage1.Controls.Add(this.label11);
+            this.tabPage1.Controls.Add(this.chooseFolder);
+            this.tabPage1.Controls.Add(this.label10);
+            this.tabPage1.Controls.Add(this.fileName);
+            this.tabPage1.Controls.Add(this.label9);
+            this.tabPage1.Controls.Add(this.translationPoint);
+            this.tabPage1.Controls.Add(this.writePoint);
+            this.tabPage1.Controls.Add(this.explainPoint);
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(580, 197);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "导出设置";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // translationPoint
+            // 
+            this.translationPoint.Location = new System.Drawing.Point(116, 85);
+            this.translationPoint.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.translationPoint.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.translationPoint.Name = "translationPoint";
+            this.translationPoint.Size = new System.Drawing.Size(52, 21);
+            this.translationPoint.TabIndex = 5;
+            this.translationPoint.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // writePoint
+            // 
+            this.writePoint.Location = new System.Drawing.Point(116, 112);
+            this.writePoint.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.writePoint.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.writePoint.Name = "writePoint";
+            this.writePoint.Size = new System.Drawing.Size(52, 21);
+            this.writePoint.TabIndex = 4;
+            this.writePoint.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // explainPoint
+            // 
+            this.explainPoint.Location = new System.Drawing.Point(116, 58);
+            this.explainPoint.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.explainPoint.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.explainPoint.Name = "explainPoint";
+            this.explainPoint.Size = new System.Drawing.Size(52, 21);
+            this.explainPoint.TabIndex = 3;
+            this.explainPoint.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(30, 120);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(29, 12);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "默写";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(30, 89);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 12);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "加点词解释";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(30, 60);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 12);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "翻译";
+            // 
             // typeSelectedNone
             // 
             this.typeSelectedNone.AutoSize = true;
@@ -625,7 +759,7 @@
             this.questionGridView.ReadOnly = true;
             this.questionGridView.RowTemplate.Height = 23;
             this.questionGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.questionGridView.Size = new System.Drawing.Size(1009, 357);
+            this.questionGridView.Size = new System.Drawing.Size(1009, 349);
             this.questionGridView.TabIndex = 66;
             // 
             // id
@@ -719,11 +853,65 @@
             this.chartReport.TabIndex = 67;
             this.chartReport.Text = "chart1";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(30, 25);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(29, 12);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "分值";
+            // 
+            // fileName
+            // 
+            this.fileName.Location = new System.Drawing.Point(362, 58);
+            this.fileName.Name = "fileName";
+            this.fileName.Size = new System.Drawing.Size(159, 21);
+            this.fileName.TabIndex = 7;
+            this.fileName.Text = "试卷";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(315, 61);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 12);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "文件名";
+            // 
+            // chooseFolder
+            // 
+            this.chooseFolder.Location = new System.Drawing.Point(220, 56);
+            this.chooseFolder.Name = "chooseFolder";
+            this.chooseFolder.Size = new System.Drawing.Size(75, 23);
+            this.chooseFolder.TabIndex = 9;
+            this.chooseFolder.Text = "选择文件夹";
+            this.chooseFolder.UseVisualStyleBackColor = true;
+            this.chooseFolder.Click += new System.EventHandler(this.chooseFolder_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(527, 61);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(29, 12);
+            this.label11.TabIndex = 10;
+            this.label11.Text = ".doc";
+            // 
+            // path
+            // 
+            this.path.AutoSize = true;
+            this.path.Location = new System.Drawing.Point(232, 94);
+            this.path.Name = "path";
+            this.path.Size = new System.Drawing.Size(23, 12);
+            this.path.TabIndex = 11;
+            this.path.Text = "C:\\";
+            // 
             // QuestionExport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1033, 750);
+            this.ClientSize = new System.Drawing.Size(1033, 742);
             this.Controls.Add(this.chartReport);
             this.Controls.Add(this.questionGridView);
             this.Controls.Add(this.typeSelectedNone);
@@ -759,6 +947,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.selectedTranslation)).EndInit();
             this.selectedWriteArea.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.selectedWrite)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.translationPoint)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.writePoint)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.explainPoint)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartReport)).EndInit();
             this.ResumeLayout(false);
@@ -829,5 +1022,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn paragraph;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartReport;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.NumericUpDown translationPoint;
+        private System.Windows.Forms.NumericUpDown writePoint;
+        private System.Windows.Forms.NumericUpDown explainPoint;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button chooseFolder;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox fileName;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.Label path;
     }
 }

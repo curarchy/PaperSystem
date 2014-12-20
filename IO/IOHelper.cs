@@ -12,15 +12,14 @@ namespace PaperSystem.IO
             return reader.ReadToEnd();
         }
 
-        public static string WriteStringToFile(string content)
+        public static string WriteStringToFile(string content, string filePath)
         {
-            string fileName = "C:\\" + DateTime.Now.ToString("yyyyMMdd-hhmmss") + ".doc";
-            FileStream fileStream = new FileStream(fileName, FileMode.Create);
+            FileStream fileStream = new FileStream(filePath, FileMode.Create);
             StreamWriter streamWrite = new StreamWriter(fileStream);
             streamWrite.WriteLine(content);
             streamWrite.Close();
             fileStream.Close();
-            return fileName;
+            return filePath;
         }
     }
 }

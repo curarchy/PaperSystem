@@ -61,7 +61,14 @@ namespace PaperSystem.Model
             foreach (string table in tables)
             {
                 DataSet tableDs = ExcelService.GetDataSetFromExcel(file, table);
-                dt.Merge(tableDs.Tables[0], true, MissingSchemaAction.Add);
+                try
+                {
+                    dt.Merge(tableDs.Tables[0], true, MissingSchemaAction.Add);
+                }
+                catch
+                { 
+
+                }
             }
 
             return dt;

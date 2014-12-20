@@ -171,14 +171,27 @@ namespace PaperSystem.View
                     dictionary.TryGetValue(q.Key, out selectedItems);
                     DataSet ds = QuestionModel.QueryQuestionByIDs(selectedItems);
                     List<QuestionBaseEntity> questions = Transform.QuestionBaseTransform.Transform(ds.Tables[0]);
-                    paper += ExportModel.BuildPaper(questions, q.Key, chinese[index]);
+                    int point = 0;
+
+                    if (q.Key == 3) {
+                        point = Convert.ToInt16(this.explainPoint.Value);
+                    }
+                    else if (q.Key == 1) {
+                        point = Convert.ToInt16(this.translationPoint.Value);
+                    }
+                    else if (q.Key == 2)
+                    {
+                        point = Convert.ToInt16(this.writePoint.Value);
+                    }
+
+                    paper += ExportModel.BuildPaper(questions, q.Key, chinese[index], point);
                     index++;
                 }
 
             });
 
-            //DataTable dataTabel = this.selectedGridView.DataSource as DataTable;
-            string fileName = ExportModel.WriteStringToFile(paper);
+            string fileName = this.path.Text + "\\" + this.fileName.Text + ".doc";
+            ExportModel.WriteStringToFile(paper, fileName);
             MessageBox.Show("已在目录" + fileName + "生成试卷");
         }
 
@@ -237,5 +250,14 @@ namespace PaperSystem.View
             }
         }
         #endregion;
+
+        private void chooseFolder_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderdialog = new FolderBrowserDialog();
+            DialogResult dg = folderdialog.ShowDialog();
+            if (dg == System.Windows.Forms.DialogResult.OK) {
+                this.path.Text = folderdialog.SelectedPath;
+            }
+        }
     }
 }

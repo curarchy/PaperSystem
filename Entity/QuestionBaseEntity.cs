@@ -41,22 +41,17 @@ namespace PaperSystem.Entity
         /// <summary>
         /// 篇目
         /// </summary>
-        public string Artical { get; set; }
-
-        /// <summary>
-        /// 选自
-        /// </summary>
-        public string Collection { get; set; }
-
-        /// <summary>
-        /// 学期
-        /// </summary>
-        public int Grade { get; set; }
+        public int Artical { get; set; }
 
         /// <summary>
         /// 例字
         /// @translate
         /// </summary>
         public string Keyword { get; set; }
+
+        /// <summary>
+        /// 所在段落
+        /// </summary>
+        public int Paragraph { get; set; }
     }
 }

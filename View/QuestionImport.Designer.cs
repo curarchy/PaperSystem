@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuestionImport));
             this.chooseFile = new System.Windows.Forms.Button();
             this.questionGridView = new System.Windows.Forms.DataGridView();
+            this.import = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Artical = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Question = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Writter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Artical = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Collection = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.import = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Keyword = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Memo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.questionGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,12 +68,11 @@
             this.ID,
             this.Level,
             this.Type,
-            this.Grade,
-            this.Artical,
             this.Question,
-            this.Writter,
+            this.Artical,
             this.Answer,
-            this.Collection});
+            this.Keyword,
+            this.Memo});
             this.questionGridView.Location = new System.Drawing.Point(12, 41);
             this.questionGridView.Name = "questionGridView";
             this.questionGridView.ReadOnly = true;
@@ -81,75 +80,6 @@
             this.questionGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.questionGridView.Size = new System.Drawing.Size(990, 603);
             this.questionGridView.TabIndex = 3;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 50;
-            // 
-            // Level
-            // 
-            this.Level.DataPropertyName = "Level";
-            this.Level.HeaderText = "难度";
-            this.Level.MinimumWidth = 40;
-            this.Level.Name = "Level";
-            this.Level.ReadOnly = true;
-            this.Level.Width = 60;
-            // 
-            // Type
-            // 
-            this.Type.DataPropertyName = "Type";
-            this.Type.HeaderText = "类型";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
-            this.Type.Width = 60;
-            // 
-            // Grade
-            // 
-            this.Grade.DataPropertyName = "Grade";
-            this.Grade.HeaderText = "学期";
-            this.Grade.Name = "Grade";
-            this.Grade.ReadOnly = true;
-            this.Grade.Width = 60;
-            // 
-            // Artical
-            // 
-            this.Artical.DataPropertyName = "Artical";
-            this.Artical.HeaderText = "篇目";
-            this.Artical.Name = "Artical";
-            this.Artical.ReadOnly = true;
-            // 
-            // Question
-            // 
-            this.Question.DataPropertyName = "Question";
-            this.Question.HeaderText = "题干";
-            this.Question.Name = "Question";
-            this.Question.ReadOnly = true;
-            this.Question.Width = 400;
-            // 
-            // Writter
-            // 
-            this.Writter.DataPropertyName = "Writter";
-            this.Writter.HeaderText = "作者";
-            this.Writter.Name = "Writter";
-            this.Writter.ReadOnly = true;
-            // 
-            // Answer
-            // 
-            this.Answer.DataPropertyName = "Answer";
-            this.Answer.HeaderText = "答案";
-            this.Answer.Name = "Answer";
-            this.Answer.ReadOnly = true;
-            // 
-            // Collection
-            // 
-            this.Collection.DataPropertyName = "Collection";
-            this.Collection.HeaderText = "选自";
-            this.Collection.Name = "Collection";
-            this.Collection.ReadOnly = true;
             // 
             // import
             // 
@@ -171,6 +101,66 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "选中题目后可以导入。摁住Ctrl键可以选择多条。Ctrl + A 为全选。";
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 50;
+            // 
+            // Level
+            // 
+            this.Level.DataPropertyName = "Level1";
+            this.Level.HeaderText = "难度";
+            this.Level.MinimumWidth = 40;
+            this.Level.Name = "Level";
+            this.Level.ReadOnly = true;
+            this.Level.Width = 40;
+            // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "TypeText";
+            this.Type.HeaderText = "类型";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            // 
+            // Question
+            // 
+            this.Question.DataPropertyName = "Question";
+            this.Question.HeaderText = "题干";
+            this.Question.Name = "Question";
+            this.Question.ReadOnly = true;
+            this.Question.Width = 400;
+            // 
+            // Artical
+            // 
+            this.Artical.DataPropertyName = "Artical";
+            this.Artical.HeaderText = "篇目";
+            this.Artical.Name = "Artical";
+            this.Artical.ReadOnly = true;
+            // 
+            // Answer
+            // 
+            this.Answer.DataPropertyName = "Answer";
+            this.Answer.HeaderText = "答案";
+            this.Answer.Name = "Answer";
+            this.Answer.ReadOnly = true;
+            // 
+            // Keyword
+            // 
+            this.Keyword.DataPropertyName = "Keyword";
+            this.Keyword.HeaderText = "关键字";
+            this.Keyword.Name = "Keyword";
+            this.Keyword.ReadOnly = true;
+            // 
+            // Memo
+            // 
+            this.Memo.DataPropertyName = "Memo1";
+            this.Memo.HeaderText = "备注";
+            this.Memo.Name = "Memo";
+            this.Memo.ReadOnly = true;
+            // 
             // QuestionImport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -180,6 +170,7 @@
             this.Controls.Add(this.import);
             this.Controls.Add(this.questionGridView);
             this.Controls.Add(this.chooseFile);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QuestionImport";
             this.Text = "QuestionImport";
             ((System.ComponentModel.ISupportInitialize)(this.questionGridView)).EndInit();
@@ -192,16 +183,15 @@
 
         private System.Windows.Forms.Button chooseFile;
         private System.Windows.Forms.DataGridView questionGridView;
+        private System.Windows.Forms.Button import;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Level;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Grade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Artical;
         private System.Windows.Forms.DataGridViewTextBoxColumn Question;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Writter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Artical;
         private System.Windows.Forms.DataGridViewTextBoxColumn Answer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Collection;
-        private System.Windows.Forms.Button import;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Keyword;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Memo;
     }
 }

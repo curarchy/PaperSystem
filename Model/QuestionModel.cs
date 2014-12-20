@@ -28,6 +28,11 @@ namespace PaperSystem.Model
             return QuestionService.DeleteQuestions(ids);
         }
 
+        /// <summary>
+        /// 根据ID查询问题
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static QuestionBaseEntity QuerySingle(int id)
         {
             DataSet ds = QuestionService.QuerySingle(id);
@@ -44,9 +49,29 @@ namespace PaperSystem.Model
             return QuestionService.ModifyQuestion(question);
         }
 
-        public static DataSet GetQuestionsFromExcel(string file)
+        public static DataTable GetQuestionsFromExcel(string file)
         {
-            return ExcelService.GetQuestionsFromExcel(file);
+            DataTable dt = new DataTable();
+
+            List<string> tables = new List<string>()
+            {
+                "加点词解释", "翻译", "默写"
+            };
+
+            foreach (string table in tables)
+            {
+                DataSet tableDs = ExcelService.GetDataSetFromExcel(file, table);
+                try
+                {
+                    dt.Merge(tableDs.Tables[0], true, MissingSchemaAction.Add);
+                }
+                catch
+                { 
+
+                }
+            }
+
+            return dt;
         }
     }
 }

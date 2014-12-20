@@ -13,7 +13,6 @@ namespace PaperSystem.Model
             string template = IOHelper.GetStringFromFile(@"ExportDocuments/translation/Question.tpl.html");
             return template.Replace("${index}", index.ToString())
                 .Replace("${Question}", question.Question)
-                .Replace("${Keyword}", question.Keyword)
                 .Replace("${Answer}", UNDERLINE);
         }
 
@@ -29,15 +28,24 @@ namespace PaperSystem.Model
             return result;
         }
 
-        public static string BuildHeader(string index)
+        /// <summary>
+        /// 建造大题文字
+        /// </summary>
+        /// <param name="index">第几题</param>
+        /// <param name="count">题目数量</param>
+        /// <param name="point">分值</param>
+        /// <returns></returns>
+        public static string BuildHeader(string index, int count, int point = 2)
         {
             string template = IOHelper.GetStringFromFile(@"ExportDocuments/translation/QuestionHeader.tpl.html");
-            return template.Replace("${index}", index);
+            string points = point.ToString() + "*" + count.ToString() + "=" + (count * point).ToString();
+            return template.Replace("${index}", index)
+                .Replace("${Point}", points);
         }
 
-        public static string BuildSection(string index, List<QuestionBaseEntity> questions)
+        public static string BuildSection(string index, List<QuestionBaseEntity> questions, int point = 2)
         {
-            return BuildHeader(index) + BuildQuestions(questions);
+            return BuildHeader(index, questions.Count, point) + BuildQuestions(questions);
         }
 
     }

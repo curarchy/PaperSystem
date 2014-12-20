@@ -70,6 +70,11 @@ namespace PaperSystem.View
             return result;
         }
 
+        /// <summary>
+        /// 获取选中的行id
+        /// </summary>
+        /// <param name="dataGridView"></param>
+        /// <returns></returns>
         public static List<int> GetSelectedIndex(DataGridView dataGridView)
         {
             List<int> result = new List<int>();
@@ -81,6 +86,52 @@ namespace PaperSystem.View
                 result.Add(Convert.ToInt16(item.Cells[0].Value));
             }
 
+            return result;
+        }
+
+        /// <summary>
+        /// 根据题目类型返回所选题目
+        /// </summary>
+        /// <param name="dataGridView"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static List<int> GetSelectedIndex(DataGridView dataGridView, int type)
+        {
+            List<int> result = new List<int>();
+            DataGridViewSelectedRowCollection selectedRows = dataGridView.SelectedRows;
+
+            foreach (DataGridViewRow item in selectedRows)
+            {
+                if (type == Convert.ToInt16(item.Cells["Type"].Value))
+                {
+                    result.Add(Convert.ToInt16(item.Cells[0].Value));
+                }
+            }
+
+            return result;
+        }
+
+
+        public static List<int> GetIndex(DataGridViewRowCollection rows)
+        {
+            List<int> result = new List<int>();
+            foreach (DataGridViewRow item in rows)
+            {
+                // id的话，有两个会出问题。。。
+                result.Add(Convert.ToInt16(item.Cells[0].Value));
+            }
+
+            return result;
+        }
+
+        public static List<int> GetCheckedList(CheckedListBox control)
+        {
+            
+            List<int> result = new List<int>();
+            foreach (CommonEntity item in control.CheckedItems)
+            {
+                result.Add(item.Key);
+            }
             return result;
         }
     }

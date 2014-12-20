@@ -12,6 +12,30 @@ namespace PaperSystem.View
         public QuestionList()
         {
             InitializeComponent();
+            InitControls();
+        }
+
+        private void InitControls()
+        {
+            this.questionGridView.AutoGenerateColumns = false;
+
+            this.gradeCheckedList.ValueMember = "Key";
+            this.gradeCheckedList.DisplayMember = "Value";
+
+            List<CommonEntity> gradeList = CommonModel.QueryGradeList();
+            this.gradeCheckedList.Items.AddRange(gradeList.ToArray());
+
+            this.levelCheckedList.ValueMember = "Key";
+            this.levelCheckedList.DisplayMember = "Value";
+
+            List<CommonEntity> levelList = CommonModel.QueryLevelList();
+            this.levelCheckedList.Items.AddRange(levelList.ToArray());
+
+            this.typeCheckedList.ValueMember = "Key";
+            this.typeCheckedList.DisplayMember = "Value";
+
+            List<CommonEntity> typeList = CommonModel.QueryTypeList();
+            this.typeCheckedList.Items.AddRange(typeList.ToArray());
         }
 
         private void search_Click(object sender, EventArgs e)
@@ -30,8 +54,9 @@ namespace PaperSystem.View
         {
             QuestionQueryBaseEntity query = new QuestionQueryBaseEntity();
             query.Keyword = this.keyword.Text;
-            query.Level = UIHelper.GetCheckedCheckboxs(this.groupLevel.Controls);
-            query.Grade = UIHelper.GetCheckedCheckboxs(this.groupGrade.Controls);
+            query.Level = UIHelper.GetCheckedList(this.levelCheckedList);
+            query.Grade = UIHelper.GetCheckedList(this.gradeCheckedList);
+            query.Type = UIHelper.GetCheckedList(this.typeCheckedList);
             return query;
         }
 
@@ -83,5 +108,55 @@ namespace PaperSystem.View
             QuestionExport questionExportForm = new QuestionExport();
             questionExportForm.ShowDialog();
         }
+
+        #region 全选事件
+        private void levelSelectedAll_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.levelCheckedList.Items.Count; i++)
+            {
+                this.levelCheckedList.SetItemCheckState(i, CheckState.Checked);
+            }
+        }
+
+        private void gradeSelectedAll_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.gradeCheckedList.Items.Count; i++)
+            {
+                this.gradeCheckedList.SetItemCheckState(i, CheckState.Checked);
+            }
+        }
+
+        private void levelSelectedNone_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.levelCheckedList.Items.Count; i++)
+            {
+                this.levelCheckedList.SetItemCheckState(i, CheckState.Unchecked);
+            }
+        }
+
+        private void gradeSelectedNone_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.gradeCheckedList.Items.Count; i++)
+            {
+                this.gradeCheckedList.SetItemCheckState(i, CheckState.Unchecked);
+            }
+        }
+
+        private void typeSelectedNone_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.typeCheckedList.Items.Count; i++)
+            {
+                this.typeCheckedList.SetItemCheckState(i, CheckState.Unchecked);
+            }
+        }
+
+        private void typeSelectedAll_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.typeCheckedList.Items.Count; i++)
+            {
+                this.typeCheckedList.SetItemCheckState(i, CheckState.Checked);
+            }
+        }
+        #endregion;
     }
 }

@@ -71,11 +71,14 @@ namespace PaperSystem.Model
         public static ArticalEntity QuerySingle(string name)
         {
             DataSet ds = ArticalService.QuerySingle(name);
-            DataRow dr = ds.Tables[0].Rows[0];
-            if (dr != null)
-            {
-                return ArticalTransform.Transform(dr);
+            if (ds.Tables[0].Rows.Count > 0) {
+                DataRow dr = ds.Tables[0].Rows[0];
+                if (dr != null)
+                {
+                    return ArticalTransform.Transform(dr);
+                }
             }
+
             return null;
         }
 

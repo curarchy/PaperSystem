@@ -25,4 +25,3 @@ D:\Github\xjj\PaperSystem\bin\Debug\ExportDocuments\explain\QuestionHeader.tpl.h
 D:\Github\xjj\PaperSystem\bin\Debug\ExportDocuments\write\Answer.tpl.html
 D:\Github\xjj\PaperSystem\bin\Debug\ExportDocuments\write\Question.tpl.html
 D:\Github\xjj\PaperSystem\bin\Debug\ExportDocuments\write\QuestionHeader.tpl.html
-D:\Github\xjj\PaperSystem\obj\x86\Debug\PaperSystem.csprojResolveAssemblyReference.cache

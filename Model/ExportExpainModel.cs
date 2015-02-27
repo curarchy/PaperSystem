@@ -17,6 +17,16 @@ namespace PaperSystem.Model
                 .Replace("${Answer}", UNDERLINE);
         }
 
+        public static string BuildAnswer(QuestionBaseEntity question, int index = 1)
+        {
+            string template = IOHelper.GetStringFromFile(@"ExportDocuments/explain/Answer.tpl.html");
+            return template.Replace("${index}", index.ToString())
+                .Replace("${Question}", question.Question)
+                .Replace("${Keyword}", question.Keyword)
+                .Replace("${Answer}", question.Answer)
+                .Replace("${level}", question.Level.ToString());
+        }
+
         public static string BuildQuestions(List<QuestionBaseEntity> questions)
         {
             string result = "";
@@ -25,6 +35,18 @@ namespace PaperSystem.Model
             {
                 i++;
                 result += BuildQuestion(question, i);
+            }
+            return result;
+        }
+
+        public static string BuildAnswers(List<QuestionBaseEntity> questions)
+        {
+            string result = "";
+            int i = 0;
+            foreach (QuestionBaseEntity question in questions)
+            {
+                i++;
+                result += BuildAnswer(question, i);
             }
             return result;
         }
@@ -47,6 +69,11 @@ namespace PaperSystem.Model
         public static string BuildSection(string index, List<QuestionBaseEntity> questions, int point = 2)
         {
             return BuildHeader(index, questions.Count, point) + BuildQuestions(questions);
+        }
+
+        public static string BuildSectionWithAnswers(string index, List<QuestionBaseEntity> questions, int point = 2)
+        {
+            return BuildHeader(index, questions.Count, point) + BuildAnswers(questions);
         }
     }
 }

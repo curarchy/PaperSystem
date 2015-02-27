@@ -28,12 +28,28 @@ namespace PaperSystem.Model
                     return "";
             }
         }
+
+        public static string BuildAnswer(List<QuestionBaseEntity> questions, int type, string index, int point = 2)
+        {
+            switch (type)
+            {
+                case 1:
+                    return ExportExplainModel.BuildSectionWithAnswers(index, questions, point);
+                case 2:
+                    return ExportWriteModel.BuildSectionWithAnswers(index, questions, point);
+                case 3:
+                    return ExportTranslateModel.BuildSectionWithAnswers(index, questions, point);
+                default:
+                    return "";
+            }
+        }
         
-        public static string WriteStringToFile(string content, string filePath)
+        public static string WriteStringToFile(string content, string header, string filePath)
         {
             string template = IOHelper.GetStringFromFile(@"ExportDocuments/OriginMain.tpl.html");
-            string paper = template.Replace("${content}", content);
-            return IOHelper.WriteStringToFile(content, filePath);
+            string paper = template.Replace("${content}", content)
+                .Replace("${header}", header);
+            return IOHelper.WriteStringToFile(paper, filePath);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using PaperSystem.Entity;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace PaperSystem.Model
 {
@@ -53,6 +54,10 @@ namespace PaperSystem.Model
         /// <returns></returns>
         public static int GuessParagraphEX(string content, string question)
         {
+            string[] questions = question.Split('_');
+
+            question = questions.First(e => { return CheckChinese(e); });
+
             // 先去掉头尾空格。
             content = content.Trim();
 
@@ -70,6 +75,11 @@ namespace PaperSystem.Model
 
             // 第一个数组里的空格数 + 1，就是所在段落数
             return Regex.Matches(result[0], " ").Count + 1;
+        }
+
+        public static bool CheckChinese(string text)
+        {
+            return Regex.IsMatch(text, @"[\u4e00-\u9fbb]");
         }
     }
 }

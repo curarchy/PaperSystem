@@ -31,6 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuestionList));
             this.search = new System.Windows.Forms.Button();
             this.questionGridView = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Artical = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Question = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Writter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paragraph = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.create = new System.Windows.Forms.Button();
             this.keyword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,15 +58,6 @@
             this.typeSelectedAll = new System.Windows.Forms.LinkLabel();
             this.typeCheckedList = new System.Windows.Forms.CheckedListBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Artical = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Question = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Writter = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paragraph = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.questionGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,6 +99,77 @@
             this.questionGridView.Size = new System.Drawing.Size(883, 579);
             this.questionGridView.TabIndex = 2;
             this.questionGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.questionGridView_CellDoubleClick);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            this.ID.Width = 50;
+            // 
+            // Level
+            // 
+            this.Level.DataPropertyName = "LevelText";
+            this.Level.HeaderText = "难度";
+            this.Level.MinimumWidth = 40;
+            this.Level.Name = "Level";
+            this.Level.ReadOnly = true;
+            this.Level.Width = 60;
+            // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "TypeText";
+            this.Type.HeaderText = "类型";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            this.Type.Width = 60;
+            // 
+            // Grade
+            // 
+            this.Grade.DataPropertyName = "GradeText";
+            this.Grade.HeaderText = "学期";
+            this.Grade.Name = "Grade";
+            this.Grade.ReadOnly = true;
+            this.Grade.Width = 60;
+            // 
+            // Artical
+            // 
+            this.Artical.DataPropertyName = "Title";
+            this.Artical.HeaderText = "篇目";
+            this.Artical.Name = "Artical";
+            this.Artical.ReadOnly = true;
+            // 
+            // Question
+            // 
+            this.Question.DataPropertyName = "Question";
+            this.Question.HeaderText = "题干";
+            this.Question.Name = "Question";
+            this.Question.ReadOnly = true;
+            this.Question.Width = 400;
+            // 
+            // Writter
+            // 
+            this.Writter.DataPropertyName = "Writter";
+            this.Writter.HeaderText = "作者";
+            this.Writter.Name = "Writter";
+            this.Writter.ReadOnly = true;
+            // 
+            // Answer
+            // 
+            this.Answer.DataPropertyName = "Answer";
+            this.Answer.HeaderText = "答案";
+            this.Answer.Name = "Answer";
+            this.Answer.ReadOnly = true;
+            // 
+            // paragraph
+            // 
+            this.paragraph.DataPropertyName = "Paragraph";
+            this.paragraph.HeaderText = "段落";
+            this.paragraph.Name = "paragraph";
+            this.paragraph.ReadOnly = true;
+            this.paragraph.Width = 40;
             // 
             // create
             // 
@@ -278,77 +349,6 @@
             this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 48;
             this.label2.Text = "题型：";
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            this.ID.Width = 50;
-            // 
-            // Level
-            // 
-            this.Level.DataPropertyName = "LevelText";
-            this.Level.HeaderText = "难度";
-            this.Level.MinimumWidth = 40;
-            this.Level.Name = "Level";
-            this.Level.ReadOnly = true;
-            this.Level.Width = 60;
-            // 
-            // Type
-            // 
-            this.Type.DataPropertyName = "TypeText";
-            this.Type.HeaderText = "类型";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
-            this.Type.Width = 60;
-            // 
-            // Grade
-            // 
-            this.Grade.DataPropertyName = "GradeText";
-            this.Grade.HeaderText = "学期";
-            this.Grade.Name = "Grade";
-            this.Grade.ReadOnly = true;
-            this.Grade.Width = 60;
-            // 
-            // Artical
-            // 
-            this.Artical.DataPropertyName = "Title";
-            this.Artical.HeaderText = "篇目";
-            this.Artical.Name = "Artical";
-            this.Artical.ReadOnly = true;
-            // 
-            // Question
-            // 
-            this.Question.DataPropertyName = "Question";
-            this.Question.HeaderText = "题干";
-            this.Question.Name = "Question";
-            this.Question.ReadOnly = true;
-            this.Question.Width = 400;
-            // 
-            // Writter
-            // 
-            this.Writter.DataPropertyName = "Writter";
-            this.Writter.HeaderText = "作者";
-            this.Writter.Name = "Writter";
-            this.Writter.ReadOnly = true;
-            // 
-            // Answer
-            // 
-            this.Answer.DataPropertyName = "Answer";
-            this.Answer.HeaderText = "答案";
-            this.Answer.Name = "Answer";
-            this.Answer.ReadOnly = true;
-            // 
-            // paragraph
-            // 
-            this.paragraph.DataPropertyName = "Paragraph";
-            this.paragraph.HeaderText = "段落";
-            this.paragraph.Name = "paragraph";
-            this.paragraph.ReadOnly = true;
-            this.paragraph.Width = 40;
             // 
             // QuestionList
             // 

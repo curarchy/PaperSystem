@@ -2,6 +2,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <style>
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
         .container {
             width: 960px;
             margin: 40px auto;
@@ -23,15 +27,28 @@
         .translation .underline {
             margin-left: 20px;
         }
+        table {
+            border: 1px solid #ccc;
+            width: 600px;
+            margin: 0 auto;
+            padding: 4px;
+        }
+        td {
+            border: 1px solid #ccc;
+            padding: 4px;
+        }
+        
+        .level {
+            padding-left: 15px;
+            font-size: 12px;
+            color: #999;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>
-                <p>某某中学第一学期</p>
-                <p>语文（学科）月考试卷</p>
-            </h1>
+            ${header}
         </header>
         <div class="main-content">
             ${content}

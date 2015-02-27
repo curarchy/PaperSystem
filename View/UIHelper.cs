@@ -70,6 +70,39 @@ namespace PaperSystem.View
             return result;
         }
 
+        public static List<QuestionBaseEntity> GetAllIndex(DataGridView dataGridView)
+        {
+            List<QuestionBaseEntity> result = new List<QuestionBaseEntity>();
+            foreach (DataGridViewRow item in dataGridView.Rows)
+            {
+                // id的话，有两个会出问题。。。
+                result.Add(
+                    new QuestionBaseEntity()
+                    {
+                        ID = Convert.ToInt16(item.Cells[0].Value),
+                        Type = Convert.ToInt16(item.Cells["Type"].Value)
+                    }
+                );
+            }
+
+            return result;
+        }
+
+        public static List<int> GetAllIndex(DataGridView dataGridView, int type)
+        {
+            List<int> result = new List<int>();
+            foreach (DataGridViewRow item in dataGridView.Rows)
+            {
+                if (type == Convert.ToInt16(item.Cells["Type"].Value))
+                {
+                    // id的话，有两个会出问题。。。
+                    result.Add(Convert.ToInt16(item.Cells[0].Value));
+                }
+            }
+
+            return result;
+        }
+
         /// <summary>
         /// 获取选中的行id
         /// </summary>
@@ -133,6 +166,33 @@ namespace PaperSystem.View
                 result.Add(item.Key);
             }
             return result;
+        }
+
+        public static List<T> GetRandomList<T>(List<T> inputList)
+        {
+            //Copy to a array
+            T[] copyArray = new T[inputList.Count];
+            inputList.CopyTo(copyArray);
+
+            //Add range
+            List<T> copyList = new List<T>();
+            copyList.AddRange(copyArray);
+
+            //Set outputList and random
+            List<T> outputList = new List<T>();
+            Random rd = new Random(DateTime.Now.Millisecond);
+
+            while (copyList.Count > 0)
+            {
+                //Select an index and item
+                int rdIndex = rd.Next(0, copyList.Count - 1);
+                T remove = copyList[rdIndex];
+
+                //remove it from copyList and add it to output
+                copyList.Remove(remove);
+                outputList.Add(remove);
+            }
+            return outputList;
         }
     }
 }
